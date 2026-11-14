@@ -1,0 +1,106 @@
+IMPORTANT — VERIFY PLANET APPEARANCE, REGION LOGIC, AND MAP MARKERS EXACTLY AGAINST MY OWN DESIGN IMAGES.
+
+Use ONLY my uploaded TerraTwin screenshots as the visual reference.
+
+I need you to explicitly verify and fix the following:
+
+## 1) REGIONS / LOCATIONS MUST WORK CORRECTLY
+
+Make sure all regions and locations are functioning correctly in the website.
+
+This includes:
+- Planet switching between Earth, Mars, and Moon
+- Correct site pins appearing for the selected planet only
+- Correct target selection behavior
+- Correct site selection behavior
+- Correct updates of the right-side detail panels
+- Correct updates of the comparison view
+- Correct updates of the best-match cards
+- Correct updates of charts and scientific data when the selected region changes
+
+Every clickable region, site marker, or target card must load the correct real scientific data from the backend.
+
+No displayed region should point to the wrong site or wrong planet.
+
+## 2) EARTH MUST LOOK LIKE THE EARTH IN MY SCREENSHOTS
+
+The Earth globe must NOT appear orange or Mars-like.
+
+It must visually match my screenshot style:
+- blue oceans
+- green/brown land
+- white clouds
+- realistic Earth lighting
+- glowing blue atmospheric rim
+- dark space background
+- realistic Earth appearance similar to my uploaded design
+
+Make sure no Mars color grading, orange tint, or incorrect overlay is causing Earth to look orange.
+
+If an overlay is enabled, it must not destroy the original Earth look shown in my screenshots.
+
+Earth should visually remain Earth.
+
+## 3) MARKERS / PINS MUST MATCH MY DESIGN IDEA
+
+Add and position map markers like in my screenshots.
+
+The markers on the globe must:
+- appear in the correct site coordinates
+- stay attached to the correct locations while rotating
+- use the same visual concept as my original design
+- use glowing colored markers similar to the screenshots
+- clearly differentiate categories using colors like:
+  - red
+  - green
+  - yellow
+
+Preserve the same design feeling of the markers from my screenshots.
+
+They should look like part of the original TerraTwin interface, not generic map pins.
+
+## 4) PRESERVE THE EXACT INTERACTION STYLE
+
+Keep the same interaction behavior:
+- 3D globe rotation
+- drag
+- zoom in/out
+- auto rotation
+- selecting a pin
+- focusing on a selected site
+- switching planets
+- updating the cards and panels dynamically
+
+Do not redesign the interface.
+
+Do not change the page structure.
+
+Do not replace the original visual style.
+
+## 5) TEST AGAINST MY ACTUAL SCREENSHOTS
+
+Open my uploaded design screenshots and compare the working website against them.
+
+Specifically verify:
+- Earth visual appearance
+- marker colors and positions
+- region interaction behavior
+- right-side cards
+- best-match cards
+- page layout
+- dark blue glowing visual style
+
+Fix any mismatch.
+
+## 6) FINAL DELIVERABLE
+
+Deliver the corrected working website with:
+- the same TerraTwin visual style from my screenshots
+- Earth looking correct, not orange
+- functioning regions and markers
+- real scientific data still connected to the backend
+- screenshots showing the corrected result
+
+Do not redesign the project.
+Do not replace the design.
+Polish and correct the existing integrated version so it matches my screenshots more closely.

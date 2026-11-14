@@ -1,0 +1,65 @@
+{
+  "created_utc": "2026-11-14T01:57:51.620797+00:00",
+  "project": "NASA Space Apps Planetary Analog MASTER",
+  "required_master_csv": [
+    "earth_master_dataset.csv",
+    "moon_master_dataset.csv",
+    "mars_master_dataset.csv",
+    "planetary_comparison_master.csv",
+    "analog_rankings_by_purpose.csv",
+    "planetary_source_catalog.csv",
+    "data_dictionary.csv"
+  ],
+  "required_website_json": [
+    "website_sites.json",
+    "website_earth_details.json",
+    "website_moon_details.json",
+    "website_mars_details.json",
+    "website_comparisons.json",
+    "website_analog_recommendations.json"
+  ],
+  "required_reports": [
+    "FINAL_SCIENTIFIC_REPORT.md",
+    "FINAL_DATA_QUALITY_REPORT.md",
+    "DATA_COVERAGE_REPORT.md",
+    "SCIENTIFIC_LIMITATIONS.md",
+    "README.md",
+    "REPRODUCIBILITY_GUIDE.md"
+  ],
+  "coverage": {
+    "earth_sites": 14,
+    "moon_sites": 2,
+    "mars_sites": 1,
+    "hourly_rows": 1227408,
+    "monthly_rows": 1680,
+    "annual_rows": 140,
+    "soil_depth_rows": 84,
+    "solar_monthly_rows": 1680,
+    "modis_rows": 5542,
+    "diviner_rows": 192,
+    "mcd_seasonal_rows": 625,
+    "mcd_independent_seasonal_coordinate_states": 576,
+    "mcd_profile_rows": 875,
+    "mcd_profile_heights": 35,
+    "mcd_unique_variable_coordinate_records": 10176,
+    "mcd_raw_numeric_scalar_cells": 11000,
+    "latest_comparison_rows": 420,
+    "archived_phase4_comparison_rows": 378,
+    "purpose_rows": 210,
+    "website_json_files": 111,
+    "required_website_json_files": 6,
+    "separate_website_series_files": 104,
+    "source_catalog_rows": 39
+  },
+  "validation_status": "PASS_WITH_SCIENTIFIC_LIMITATIONS",
+  "data_acquisition": "NONE_PHASE5",
+  "website_built": false,
+  "raw_archive_policy": "Original raw packages remain validated hash/location references in input_preservation_manifest.json; compactprocessedinputsandprovenancearebundled",
+  "file_checksum_manifest": "CHECKSUMS.sha256",
+  "file_inventory": "FILE_INVENTORY.csv",
+  "reproduction_commands": [
+    "python3 scripts/build_master.py",
+    "python3 scripts/validate_master.py"
+  ],
+  "reference_scripts_warning": "Do not run source_inputs/*/scripts or scripts/prior_phase_reference acquisition routines during offline Phase5 reproduction"
+}

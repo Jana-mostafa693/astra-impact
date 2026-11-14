@@ -1,0 +1,1613 @@
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import * as THREE from 'three';
+import {
+  Globe, Rocket, Map, Activity, Calendar, Info, Settings,
+  Thermometer, Mountain, Layers, Hexagon, ChevronRight, ChevronLeft,
+  CheckCircle2, AlertCircle, ArrowRightLeft, Target, Shield,
+  Search, Maximize, MapPin, Check, ChevronDown, ChevronUp,
+  Home, Compass, RotateCcw, Play, Pause, Plus, Minus, Sparkles,
+  Crosshair, Radio, Wind, Eye, Keyboard, ExternalLink, Award
+} from 'lucide-react';
+
+// ==========================================
+// PLANETARY & SAFE LANDING SITE DATASET
+// ==========================================
+
+export interface SiteLocation {
+  id: string;
+  name: string;
+  world: 'Mars' | 'Moon' | 'Earth';
+  subtitle: string;
+  safetyStatus: 'Optimal Safe Zone' | 'Moderate Caution' | 'High Hazard / Steep' | 'Prime Earth Analog';
+  pinColor: 'green' | 'yellow' | 'red';
+  pinHex: string;
+  temp: string;
+  terrain: string;
+  slope: string;
+  elevation: string;
+  atmosphereOrPressure: string;
+  composition: string;
+  lat: number;
+  lon: number;
+  confidence: number;
+  similarityScores: {
+    temperature: number;
+    terrain: number;
+    geology: number;
+    landingSafety: number;
+    overall: number;
+  };
+  matchingSiteId: string;
+  matchingSiteName: string;
+  img: string;
+  description: string;
+}
+
+export interface WorldConfig {
+  key: 'Mars' | 'Moon' | 'Earth';
+  name: string;
+  tagline: string;
+  atmosphereColor: string;
+  glowRgba: string;
+  accentClass: string;
+  borderClass: string;
+  badgeBg: string;
+  thumbImg: string;
+  textureUrls: string[];
+  bumpUrls?: string[];
+  specularUrls?: string[];
+  cloudUrls?: string[];
+  locations: SiteLocation[];
+}
+
+const PLANET_DATA: Record<'Mars' | 'Moon' | 'Earth', WorldConfig> = {
+  Mars: {
+    key: 'Mars',
+    name: 'Mars',
+    tagline: 'Find Earth analogs & safe landing zones for Mars missions',
+    atmosphereColor: '#f97316',
+    glowRgba: 'rgba(249, 115, 22, 0.45)',
+    accentClass: 'text-orange-400',
+    borderClass: 'border-orange-500/60',
+    badgeBg: 'from-orange-500/20 to-red-900/30',
+    thumbImg: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=85&w=240',
+    textureUrls: [
+      'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/mars_1k_color.jpg',
+      'https://raw.githubusercontent.com/turban/webgl-earth/master/images/mars_1024.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mars_equirectangular_projection.jpg/1024px-Mars_equirectangular_projection.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1024px-OSIRIS_Mars_true_color.jpg'
+    ],
+    bumpUrls: [
+      'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/mars_1k_topo.jpg',
+      'https://raw.githubusercontent.com/turban/webgl-earth/master/images/mars_1024.jpg'
+    ],
+    locations: [
+      {
+        id: 'mars-jezero',
+        name: 'Jezero Crater, Mars',
+        world: 'Mars',
+        subtitle: 'Safe Landing Zone • Perseverance Site',
+        safetyStatus: 'Optimal Safe Zone',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-55°C (avg)',
+        terrain: 'Ancient Lakebed, Delta',
+        slope: '< 3.2° (Flat Basin)',
+        elevation: '-2,550 m MOLA',
+        atmosphereOrPressure: '0.636 kPa CO₂',
+        composition: 'Basaltic, Clay Carbonates',
+        lat: 18.38,
+        lon: 77.58,
+        confidence: 98,
+        similarityScores: { temperature: 64, terrain: 95, geology: 92, landingSafety: 96, overall: 94 },
+        matchingSiteId: 'earth-atacama',
+        matchingSiteName: 'Atacama Desert, Chile',
+        img: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=80&w=800',
+        description: '45 km wide paleo-lake basin offering low-slope alluvial plains ideal for precision sky-crane and human lander touchdowns.'
+      },
+      {
+        id: 'mars-arcadia',
+        name: 'Arcadia Planitia, Mars',
+        world: 'Mars',
+        subtitle: 'Starship Candidate Safe Landing Zone',
+        safetyStatus: 'Optimal Safe Zone',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-62°C (avg)',
+        terrain: 'Smooth Volcanic Plains & Ice',
+        slope: '< 1.5° (Ultra Flat)',
+        elevation: '-3,900 m MOLA',
+        atmosphereOrPressure: '0.780 kPa CO₂',
+        composition: 'Subsurface Water Ice, Basalt',
+        lat: 39.2,
+        lon: -172.0,
+        confidence: 96,
+        similarityScores: { temperature: 88, terrain: 91, geology: 86, landingSafety: 99, overall: 92 },
+        matchingSiteId: 'earth-mcmurdo',
+        matchingSiteName: 'McMurdo Dry Valleys, Antarctica',
+        img: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&q=80&w=800',
+        description: 'Low-elevation northern plain with abundant shallow subsurface water ice and minimal boulder hazards for heavy landers.'
+      },
+      {
+        id: 'mars-elysium',
+        name: 'Elysium Planitia, Mars',
+        world: 'Mars',
+        subtitle: 'InSight Equatorial Safe Zone',
+        safetyStatus: 'Optimal Safe Zone',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-50°C (avg)',
+        terrain: 'Equatorial Regolith Plain',
+        slope: '1.8° (Smooth)',
+        elevation: '-2,650 m MOLA',
+        atmosphereOrPressure: '0.690 kPa CO₂',
+        composition: 'Fine Regolith, Flood Basalt',
+        lat: 4.5,
+        lon: 135.9,
+        confidence: 95,
+        similarityScores: { temperature: 72, terrain: 94, geology: 90, landingSafety: 97, overall: 90 },
+        matchingSiteId: 'earth-holuhraun',
+        matchingSiteName: 'Holuhraun Lava Field, Iceland',
+        img: 'https://images.unsplash.com/photo-1549480017-d77461a48c40?auto=format&fit=crop&q=80&w=800',
+        description: 'Called the "biggest parking lot on Mars", offering maximum solar irradiance and ultra-low rock abundance.'
+      },
+      {
+        id: 'mars-gale',
+        name: 'Gale Crater (Aeolis Mons)',
+        world: 'Mars',
+        subtitle: 'Curiosity Rover Region • Moderate Slope',
+        safetyStatus: 'Moderate Caution',
+        pinColor: 'yellow',
+        pinHex: '#eab308',
+        temp: '-48°C (avg)',
+        terrain: 'Layered Sulfate Mountain Base',
+        slope: '6.4° (Undulating)',
+        elevation: '-4,500 m MOLA',
+        atmosphereOrPressure: '0.730 kPa CO₂',
+        composition: 'Smectite Clays, Sulfates',
+        lat: -5.4,
+        lon: 137.8,
+        confidence: 89,
+        similarityScores: { temperature: 70, terrain: 86, geology: 91, landingSafety: 78, overall: 85 },
+        matchingSiteId: 'earth-sahara',
+        matchingSiteName: 'Sahara Erg & Wadi, North Africa',
+        img: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?auto=format&fit=crop&q=80&w=800',
+        description: 'Deep impact basin with high atmospheric density for parachute deceleration, bordered by dark Bagnold sand dunes.'
+      },
+      {
+        id: 'mars-valles',
+        name: 'Valles Marineris (Coprates)',
+        world: 'Mars',
+        subtitle: 'Canyon Floor • High Hazard Zone',
+        safetyStatus: 'High Hazard / Steep',
+        pinColor: 'red',
+        pinHex: '#ef4444',
+        temp: '-40°C (avg)',
+        terrain: 'Tectonic Canyon & Landslides',
+        slope: '18.5° (High Relief)',
+        elevation: '-7,000 m MOLA',
+        atmosphereOrPressure: '0.950 kPa CO₂',
+        composition: 'Layered Volcanic & Talus',
+        lat: -13.9,
+        lon: -59.2,
+        confidence: 82,
+        similarityScores: { temperature: 76, terrain: 84, geology: 82, landingSafety: 48, overall: 74 },
+        matchingSiteId: 'earth-devon',
+        matchingSiteName: 'Devon Island Haughton Crater, Canada',
+        img: 'https://images.unsplash.com/photo-1534293230397-c067fc2019ea?auto=format&fit=crop&q=80&w=800',
+        description: 'Spectacular scientific canyon exposing billions of years of stratigraphy, requiring pinpoint terrain-relative navigation.'
+      }
+    ]
+  },
+  Moon: {
+    key: 'Moon',
+    name: 'Moon',
+    tagline: 'Find Earth analogs & Artemis safe landing zones on the Moon',
+    atmosphereColor: '#94a3b8',
+    glowRgba: 'rgba(148, 163, 184, 0.4)',
+    accentClass: 'text-slate-200',
+    borderClass: 'border-slate-400/60',
+    badgeBg: 'from-slate-500/20 to-slate-900/40',
+    thumbImg: 'https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&q=85&w=240',
+    textureUrls: [
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/moon_1024.jpg',
+      'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_1k.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Moonmap_from_clementine_data.png/1024px-Moonmap_from_clementine_data.png'
+    ],
+    bumpUrls: [
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/moon_1024.jpg',
+      'https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/ldem_3_8bit.jpg'
+    ],
+    locations: [
+      {
+        id: 'moon-shackleton',
+        name: 'Shackleton Connecting Ridge',
+        world: 'Moon',
+        subtitle: 'Artemis III Safe Landing Zone • South Pole',
+        safetyStatus: 'Optimal Safe Zone',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-183°C to -90°C',
+        terrain: 'Illuminated Polar Ridge',
+        slope: '4.1° (Safe Crest)',
+        elevation: '+2,100 m LOLA',
+        atmosphereOrPressure: 'Vacuum (10⁻¹² Pa)',
+        composition: 'Anorthosite Regolith, Water Ice',
+        lat: -85.5,
+        lon: 12.0,
+        confidence: 97,
+        similarityScores: { temperature: 75, terrain: 93, geology: 89, landingSafety: 94, overall: 91 },
+        matchingSiteId: 'earth-mcmurdo',
+        matchingSiteName: 'McMurdo Dry Valleys, Antarctica',
+        img: 'https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&q=80&w=800',
+        description: 'Near-continuous solar illumination (>85% of the lunar year) adjacent to permanently shadowed water-ice traps.'
+      },
+      {
+        id: 'moon-tranquility',
+        name: 'Mare Tranquillitatis',
+        world: 'Moon',
+        subtitle: 'Historic Apollo Safe Landing Basin',
+        safetyStatus: 'Optimal Safe Zone',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-130°C to +120°C',
+        terrain: 'Flat Lunar Mare Basalt',
+        slope: '< 1.2° (Extremely Flat)',
+        elevation: '-1,800 m LOLA',
+        atmosphereOrPressure: 'Vacuum',
+        composition: 'Ilmenite-rich Mare Basalt',
+        lat: 0.67,
+        lon: 23.47,
+        confidence: 99,
+        similarityScores: { temperature: 65, terrain: 97, geology: 95, landingSafety: 99, overall: 95 },
+        matchingSiteId: 'earth-meteor',
+        matchingSiteName: 'Meteor Crater & Cinder Lake, USA',
+        img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+        description: 'Smooth equatorial basaltic lava plain with Direct-to-Earth line-of-sight communication and proven landing safety.'
+      },
+      {
+        id: 'moon-malapert',
+        name: 'Malapert Massif, Moon',
+        world: 'Moon',
+        subtitle: 'Artemis Candidate • Elevated Plateau',
+        safetyStatus: 'Optimal Safe Zone',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-160°C (avg)',
+        terrain: 'Highland Massif Summit',
+        slope: '4.8° (Summit Flat)',
+        elevation: '+4,900 m LOLA',
+        atmosphereOrPressure: 'Vacuum',
+        composition: 'Feldspathic Highlands',
+        lat: -78.0,
+        lon: 0.0,
+        confidence: 93,
+        similarityScores: { temperature: 70, terrain: 90, geology: 88, landingSafety: 91, overall: 89 },
+        matchingSiteId: 'earth-devon',
+        matchingSiteName: 'Devon Island Haughton Crater, Canada',
+        img: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&q=80&w=800',
+        description: 'Dominant highland peak offering constant Earth visibility for relay telemetry and safe landing plateaus.'
+      },
+      {
+        id: 'moon-aristarchus',
+        name: 'Aristarchus Plateau',
+        world: 'Moon',
+        subtitle: 'Pyroclastic Deposit • Caution Zone',
+        safetyStatus: 'Moderate Caution',
+        pinColor: 'yellow',
+        pinHex: '#eab308',
+        temp: '-110°C to +115°C',
+        terrain: 'Volcanic Rilles & Blanket',
+        slope: '7.2° (Terraced)',
+        elevation: '+1,600 m LOLA',
+        atmosphereOrPressure: 'Vacuum',
+        composition: 'Volcanic Glass Beads, Silicates',
+        lat: 23.7,
+        lon: -47.4,
+        confidence: 88,
+        similarityScores: { temperature: 68, terrain: 86, geology: 94, landingSafety: 76, overall: 84 },
+        matchingSiteId: 'earth-holuhraun',
+        matchingSiteName: 'Holuhraun Lava Field, Iceland',
+        img: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&q=80&w=800',
+        description: 'Rich in volcanic pyroclastic glass for oxygen extraction (ISRU), crossed by sinuous Vallis Schröteri.'
+      },
+      {
+        id: 'moon-tycho',
+        name: 'Tycho Central Peak Rim',
+        world: 'Moon',
+        subtitle: 'Young Impact Crater • Steep Hazard',
+        safetyStatus: 'High Hazard / Steep',
+        pinColor: 'red',
+        pinHex: '#ef4444',
+        temp: '-120°C (avg)',
+        terrain: 'Jagged Impact Melt & Boulders',
+        slope: '21.0° (Rough)',
+        elevation: '-2,200 m LOLA',
+        atmosphereOrPressure: 'Vacuum',
+        composition: 'Impact Melt Breccia, Gabbro',
+        lat: -43.3,
+        lon: -11.2,
+        confidence: 84,
+        similarityScores: { temperature: 62, terrain: 88, geology: 91, landingSafety: 45, overall: 75 },
+        matchingSiteId: 'earth-meteor',
+        matchingSiteName: 'Meteor Crater, Arizona, USA',
+        img: 'https://images.unsplash.com/photo-1534293230397-c067fc2019ea?auto=format&fit=crop&q=80&w=800',
+        description: '108-million-year-old crater with dense boulder fields and steep terraced walls requiring robotic scouting.'
+      }
+    ]
+  },
+  Earth: {
+    key: 'Earth',
+    name: 'Earth',
+    tagline: 'Explore testing sites on our planet',
+    atmosphereColor: '#06b6d4',
+    glowRgba: 'rgba(6, 182, 212, 0.5)',
+    accentClass: 'text-cyan-400',
+    borderClass: 'border-cyan-500/60',
+    badgeBg: 'from-cyan-500/20 to-blue-900/40',
+    thumbImg: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=85&w=240',
+    textureUrls: [
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Land_ocean_ice_2048.jpg/1024px-Land_ocean_ice_2048.jpg'
+    ],
+    bumpUrls: [
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_normal_2048.jpg',
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'
+    ],
+    specularUrls: [
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg'
+    ],
+    cloudUrls: [
+      'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png'
+    ],
+    locations: [
+      {
+        id: 'earth-atacama',
+        name: 'Atacama Desert, Chile',
+        world: 'Earth',
+        subtitle: 'Earth Analog (Mars-like)',
+        safetyStatus: 'Prime Earth Analog',
+        pinColor: 'red',
+        pinHex: '#ef4444',
+        temp: '-20°C – 30°C',
+        terrain: 'Rocky, Dry',
+        slope: '2.5° (Alluvial Pan)',
+        elevation: '+2,400 m ASL',
+        atmosphereOrPressure: 'Near Zero NDVI / Hyper-Arid',
+        composition: 'Perchlorate Salts, Basalt',
+        lat: -24.5,
+        lon: -68.9,
+        confidence: 98,
+        similarityScores: { temperature: 76, terrain: 96, geology: 94, landingSafety: 98, overall: 94 },
+        matchingSiteId: 'mars-jezero',
+        matchingSiteName: 'Jezero Crater, Mars',
+        img: 'https://images.unsplash.com/photo-1549480017-d77461a48c40?auto=format&fit=crop&q=80&w=800',
+        description: 'Oldest and driest non-polar desert on Earth with UV flux and oxidized soil chemistry closely mirroring Mars.'
+      },
+      {
+        id: 'earth-meteor',
+        name: 'Meteor Crater, Arizona, USA',
+        world: 'Earth',
+        subtitle: 'Earth Analog (Moon & Mars Impact)',
+        safetyStatus: 'Prime Earth Analog',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-10°C – 35°C',
+        terrain: 'Preserved Impact Crater',
+        slope: '3.0° Rim / 18° Wall',
+        elevation: '+1,740 m ASL',
+        atmosphereOrPressure: 'Arid Steppe',
+        composition: 'Shocked Quartz, Breccia',
+        lat: 35.02,
+        lon: -111.02,
+        confidence: 94,
+        similarityScores: { temperature: 70, terrain: 95, geology: 92, landingSafety: 91, overall: 90 },
+        matchingSiteId: 'moon-tranquility',
+        matchingSiteName: 'Mare Tranquillitatis, Moon',
+        img: 'https://images.unsplash.com/photo-1534293230397-c067fc2019ea?auto=format&fit=crop&q=80&w=800',
+        description: 'Historic Apollo astronaut training ground used to validate lunar EVA suits, seismic drills, and rim navigation.'
+      },
+      {
+        id: 'earth-amazon-barreira',
+        name: 'Alcântara & Rio Negro Basin, Brazil',
+        world: 'Earth',
+        subtitle: 'Equatorial Launch & Fluvial Delta Analog',
+        safetyStatus: 'Prime Earth Analog',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '22°C – 34°C',
+        terrain: 'Ironstone Cliffs & Paleo-Delta',
+        slope: '2.1° (Coastal Plateau)',
+        elevation: '+45 m ASL',
+        atmosphereOrPressure: 'Equatorial Corridor',
+        composition: 'Lateritic Iron Oxide, Sandstone',
+        lat: -4.2,
+        lon: -62.2,
+        confidence: 91,
+        similarityScores: { temperature: 58, terrain: 89, geology: 88, landingSafety: 93, overall: 86 },
+        matchingSiteId: 'mars-jezero',
+        matchingSiteName: 'Jezero Crater Delta, Mars',
+        img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800',
+        description: 'Red hematitic sedimentary formations and complex braided river deltas studied to understand ancient Martian hydrology.'
+      },
+      {
+        id: 'earth-sahara',
+        name: 'Sahara Desert (Tassili), Africa',
+        world: 'Earth',
+        subtitle: 'Earth Analog (Aeolian Mars Dunes)',
+        safetyStatus: 'Moderate Caution',
+        pinColor: 'yellow',
+        pinHex: '#eab308',
+        temp: '10°C – 45°C',
+        terrain: 'Mega-Dunes & Bedrock Yardangs',
+        slope: '5.5° (Dune Slopes)',
+        elevation: '+1,150 m ASL',
+        atmosphereOrPressure: 'Hyper-Arid Trade Winds',
+        composition: 'Quartzose Sand, Sandstone',
+        lat: 23.4,
+        lon: -12.5,
+        confidence: 89,
+        similarityScores: { temperature: 62, terrain: 93, geology: 87, landingSafety: 84, overall: 85 },
+        matchingSiteId: 'mars-gale',
+        matchingSiteName: 'Gale Crater, Mars',
+        img: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&q=80&w=800',
+        description: 'Vast wind-sculpted yardangs and linear sand dunes ideal for rover wheel traction and dust storm resilience trials.'
+      },
+      {
+        id: 'earth-canary',
+        name: 'Lanzarote Volcanic Park, Spain',
+        world: 'Earth',
+        subtitle: 'ESA Pangaea Lunar & Mars Lava Tubes',
+        safetyStatus: 'Moderate Caution',
+        pinColor: 'yellow',
+        pinHex: '#eab308',
+        temp: '14°C – 28°C',
+        terrain: 'Basaltic Cones & Lava Tubes',
+        slope: '4.2° (Ash Plains)',
+        elevation: '+380 m ASL',
+        atmosphereOrPressure: 'Dry Subtropical',
+        composition: 'Olivine Basalt, Tephra',
+        lat: 29.0,
+        lon: -13.6,
+        confidence: 95,
+        similarityScores: { temperature: 74, terrain: 95, geology: 97, landingSafety: 90, overall: 92 },
+        matchingSiteId: 'moon-aristarchus',
+        matchingSiteName: 'Aristarchus Plateau, Moon',
+        img: 'https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&q=80&w=800',
+        description: 'Pristine basaltic lava flows and subterranean lava tubes used by ESA to train astronauts for lunar cave exploration.'
+      },
+      {
+        id: 'earth-pacific-hawaii',
+        name: 'Mauna Loa HI-SEAS, Pacific',
+        world: 'Earth',
+        subtitle: 'High-Altitude Basalt Habitat Site',
+        safetyStatus: 'Moderate Caution',
+        pinColor: 'yellow',
+        pinHex: '#eab308',
+        temp: '-5°C – 18°C',
+        terrain: 'Shield Volcano Pahoehoe Lava',
+        slope: '6.0° (Volcanic Flank)',
+        elevation: '+2,500 m ASL',
+        atmosphereOrPressure: 'Thin Alpine Air',
+        composition: 'Tholeiitic Basalt',
+        lat: -18.5,
+        lon: -102.0,
+        confidence: 92,
+        similarityScores: { temperature: 82, terrain: 94, geology: 96, landingSafety: 87, overall: 91 },
+        matchingSiteId: 'mars-elysium',
+        matchingSiteName: 'Elysium Planitia, Mars',
+        img: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&q=80&w=800',
+        description: 'Isolated volcanic slopes used for long-duration crew isolation missions and autonomous spacewalk operations.'
+      },
+      {
+        id: 'earth-mcmurdo',
+        name: 'McMurdo Dry Valleys, Antarctica',
+        world: 'Earth',
+        subtitle: 'Cryogenic Permafrost Mars/Moon Analog',
+        safetyStatus: 'Prime Earth Analog',
+        pinColor: 'green',
+        pinHex: '#22c55e',
+        temp: '-50°C – -5°C',
+        terrain: 'Hyper-Cold Ice-Cemented Soil',
+        slope: '3.4° (Valley Floor)',
+        elevation: '+1,200 m ASL',
+        atmosphereOrPressure: 'Katabatic Dry Winds',
+        composition: 'Dolerite, Dry Permafrost',
+        lat: -77.5,
+        lon: 161.8,
+        confidence: 96,
+        similarityScores: { temperature: 98, terrain: 92, geology: 90, landingSafety: 93, overall: 95 },
+        matchingSiteId: 'mars-arcadia',
+        matchingSiteName: 'Arcadia Planitia, Mars',
+        img: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&q=80&w=800',
+        description: 'Closest terrestrial temperature and ice-table analog to northern Martian plains and lunar polar craters.'
+      }
+    ]
+  }
+};
+
+// ==========================================
+// REALISTIC SATELLITE TEXTURE LOADER & OVERLAY COMPOSITOR
+// Loads real NASA / Three.js equirectangular satellite maps with multi-URL fallback
+// ==========================================
+
+const loadedImageCache: Record<string, HTMLImageElement> = {};
+
+function loadImageWithFallback(urls: string[]): Promise<HTMLImageElement | null> {
+  return new Promise((resolve) => {
+    let index = 0;
+    const tryNext = () => {
+      if (index >= urls.length) {
+        resolve(null);
+        return;
+      }
+      const url = urls[index++];
+      if (loadedImageCache[url]) {
+        resolve(loadedImageCache[url]);
+        return;
+      }
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        loadedImageCache[url] = img;
+        resolve(img);
+      };
+      img.onerror = () => {
+        tryNext();
+      };
+      img.src = url;
+    };
+    tryNext();
+  });
+}
+
+// High-detail fallback generator used while satellite images stream in or if offline
+function createPlanetaryTexture(
+  world: 'Earth' | 'Mars' | 'Moon',
+  activeOverlay: 'none' | 'thermal' | 'elevation' | 'safety',
+  realSurfaceImg?: HTMLImageElement | null
+): { map: THREE.CanvasTexture; bumpMap: THREE.CanvasTexture; cloudsMap?: THREE.CanvasTexture } {
+  const width = 2048;
+  const height = 1024;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d')!;
+
+  const bumpCanvas = document.createElement('canvas');
+  bumpCanvas.width = width;
+  bumpCanvas.height = height;
+  const bumpCtx = bumpCanvas.getContext('2d')!;
+
+  // Deterministic pseudo-random helper
+  let seed = world === 'Earth' ? 42 : world === 'Mars' ? 137 : 999;
+  const rand = () => {
+    seed = (seed * 16807) % 2147483647;
+    return (seed - 1) / 2147483646;
+  };
+
+  // Lon/Lat to X/Y helper
+  const lonLatToXY = (lon: number, lat: number) => ({
+    x: ((lon + 180) / 360) * width,
+    y: ((90 - lat) / 180) * height
+  });
+
+  if (realSurfaceImg) {
+    // Draw authentic high-res NASA satellite map directly onto the texture canvas
+    ctx.drawImage(realSurfaceImg, 0, 0, width, height);
+    bumpCtx.drawImage(realSurfaceImg, 0, 0, width, height);
+  } else if (world === 'Earth') {
+    // Deep rich ocean gradient
+    const oceanGrad = ctx.createLinearGradient(0, 0, 0, height);
+    oceanGrad.addColorStop(0, '#0c2d57');
+    oceanGrad.addColorStop(0.2, '#072247');
+    oceanGrad.addColorStop(0.5, '#06346f');
+    oceanGrad.addColorStop(0.8, '#072247');
+    oceanGrad.addColorStop(1, '#0c2d57');
+    ctx.fillStyle = oceanGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    bumpCtx.fillStyle = '#151515';
+    bumpCtx.fillRect(0, 0, width, height);
+  } else if (world === 'Mars') {
+    const marsGrad = ctx.createLinearGradient(0, 0, 0, height);
+    marsGrad.addColorStop(0, '#7c2d12');
+    marsGrad.addColorStop(0.2, '#b45309');
+    marsGrad.addColorStop(0.5, '#c2410c');
+    marsGrad.addColorStop(0.8, '#9a3412');
+    marsGrad.addColorStop(1, '#6c240c');
+    ctx.fillStyle = marsGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    bumpCtx.fillStyle = '#606060';
+    bumpCtx.fillRect(0, 0, width, height);
+  } else {
+    const moonGrad = ctx.createLinearGradient(0, 0, 0, height);
+    moonGrad.addColorStop(0, '#64748b');
+    moonGrad.addColorStop(0.5, '#94a3b8');
+    moonGrad.addColorStop(1, '#64748b');
+    ctx.fillStyle = moonGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    bumpCtx.fillStyle = '#707070';
+    bumpCtx.fillRect(0, 0, width, height);
+  }
+
+  // Optional Scientific Data Overlays (Thermal / Elevation / Landing Safety Heatmap)
+  if (activeOverlay !== 'none') {
+    ctx.save();
+    if (activeOverlay === 'thermal') {
+      const therm = ctx.createLinearGradient(0, 0, 0, height);
+      therm.addColorStop(0, 'rgba(59, 130, 246, 0.52)');
+      therm.addColorStop(0.25, 'rgba(16, 185, 129, 0.32)');
+      therm.addColorStop(0.5, 'rgba(239, 68, 68, 0.52)');
+      therm.addColorStop(0.75, 'rgba(16, 185, 129, 0.32)');
+      therm.addColorStop(1, 'rgba(59, 130, 246, 0.52)');
+      ctx.fillStyle = therm;
+      ctx.fillRect(0, 0, width, height);
+    } else if (activeOverlay === 'elevation') {
+      ctx.strokeStyle = 'rgba(34, 211, 238, 0.4)';
+      ctx.lineWidth = 2;
+      for (let y = 30; y < height; y += 44) {
+        ctx.beginPath();
+        for (let x = 0; x <= width; x += 28) {
+          const wave = Math.sin(x * 0.015 + y * 0.08) * 14;
+          if (x === 0) ctx.moveTo(x, y + wave);
+          else ctx.lineTo(x, y + wave);
+        }
+        ctx.stroke();
+      }
+    } else if (activeOverlay === 'safety') {
+      // Highlight safe landing corridors around each site
+      PLANET_DATA[world].locations.forEach((loc) => {
+        const { x, y } = lonLatToXY(loc.lon, loc.lat);
+        const rad = 95;
+        const g = ctx.createRadialGradient(x, y, 4, x, y, rad);
+        const col =
+          loc.pinColor === 'green'
+            ? '34, 197, 94'
+            : loc.pinColor === 'yellow'
+            ? '234, 179, 8'
+            : '239, 68, 68';
+        g.addColorStop(0, `rgba(${col}, 0.8)`);
+        g.addColorStop(0.55, `rgba(${col}, 0.35)`);
+        g.addColorStop(1, `rgba(${col}, 0)`);
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, rad, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+    ctx.restore();
+  }
+
+  const map = new THREE.CanvasTexture(canvas);
+  map.wrapS = THREE.RepeatWrapping;
+  map.wrapT = THREE.ClampToEdgeWrapping;
+  map.anisotropy = 8;
+
+  const bumpMap = new THREE.CanvasTexture(bumpCanvas);
+
+  // Subtle atmospheric dust/cloud fallback texture if real clouds haven't loaded yet
+  let cloudsMap: THREE.CanvasTexture | undefined;
+  if (world === 'Earth' || world === 'Mars') {
+    const cloudCanvas = document.createElement('canvas');
+    cloudCanvas.width = 1024;
+    cloudCanvas.height = 512;
+    const cCtx = cloudCanvas.getContext('2d')!;
+    const count = world === 'Earth' ? 180 : 60;
+    for (let i = 0; i < count; i++) {
+      const x = rand() * 1024;
+      const y = 25 + rand() * (512 - 50);
+      const rx = 20 + rand() * 80;
+      const ry = 6 + rand() * 22;
+      const g = cCtx.createRadialGradient(x, y, 1, x, y, rx);
+      const col = world === 'Earth' ? '255, 255, 255' : '253, 186, 116';
+      const alpha = world === 'Earth' ? 0.28 * rand() : 0.12 * rand();
+      g.addColorStop(0, `rgba(${col}, ${alpha})`);
+      g.addColorStop(1, `rgba(${col}, 0)`);
+      cCtx.fillStyle = g;
+      cCtx.beginPath();
+      cCtx.ellipse(x, y, rx, ry, (rand() - 0.5) * 0.5, 0, Math.PI * 2);
+      cCtx.fill();
+    }
+    cloudsMap = new THREE.CanvasTexture(cloudCanvas);
+  }
+
+  return { map, bumpMap, cloudsMap };
+}
+
+// ==========================================
+// GOOGLE EARTH-STYLE 3D WEBGL GLOBE COMPONENT
+// ==========================================
+
+interface ProjectedPin {
+  site: SiteLocation;
+  x: number;
+  y: number;
+  visible: boolean;
+  scale: number;
+  zDepth: number;
+}
+
+interface GlobeProps {
+  worldKey: 'Mars' | 'Moon' | 'Earth';
+  locations: SiteLocation[];
+  selectedLocation: SiteLocation;
+  onSelectLocation: (loc: SiteLocation) => void;
+  activeOverlay: 'none' | 'thermal' | 'elevation' | 'safety';
+  showGridLines: boolean;
+}
+
+const InteractivePlanetGlobe: React.FC<GlobeProps> = ({
+  worldKey,
+  locations,
+  selectedLocation,
+  onSelectLocation,
+  activeOverlay,
+  showGridLines
+}) => {
+  const mountRef = useRef<HTMLDivElement | null>(null);
+  const [projectedPins, setProjectedPins] = useState<ProjectedPin[]>([]);
+  const [autoSpin, setAutoSpin] = useState<boolean>(true);
+  const [is3DTilt, setIs3DTilt] = useState<boolean>(false);
+  const [zoomDistance, setZoomDistance] = useState<number>(2.75);
+
+  // Refs for smooth animation inside requestAnimationFrame
+  const autoSpinRef = useRef(autoSpin);
+  autoSpinRef.current = autoSpin;
+  const is3DTiltRef = useRef(is3DTilt);
+  is3DTiltRef.current = is3DTilt;
+  const zoomDistanceRef = useRef(zoomDistance);
+  zoomDistanceRef.current = zoomDistance;
+  const locationsRef = useRef(locations);
+  locationsRef.current = locations;
+
+  const isDraggingRef = useRef(false);
+  const prevMouseRef = useRef({ x: 0, y: 0 });
+  const targetRotationRef = useRef<{ y: number; x: number } | null>(null);
+  const currentRotRef = useRef({ y: 0.8, x: 0.15 });
+
+  // Convert Lat/Lon (degrees) to 3D Cartesian point on sphere of radius R
+  const latLonToVector3 = (lat: number, lon: number, radius = 1) => {
+    const phi = (90 - lat) * (Math.PI / 180);
+    const theta = (lon + 180) * (Math.PI / 180);
+    const x = -(radius * Math.sin(phi) * Math.cos(theta));
+    const z = radius * Math.sin(phi) * Math.sin(theta);
+    const y = radius * Math.cos(phi);
+    return new THREE.Vector3(x, y, z);
+  };
+
+  // Focus globe smoothly onto the selected location when clicked or changed
+  useEffect(() => {
+    if (!selectedLocation) return;
+    const lonRad = (selectedLocation.lon * Math.PI) / 180;
+    const latRad = (selectedLocation.lat * Math.PI) / 180;
+    // Align selected pin toward the front-facing camera (+Z axis)
+    targetRotationRef.current = {
+      y: -lonRad - Math.PI / 2,
+      x: Math.max(-0.65, Math.min(0.65, latRad * 0.65))
+    };
+  }, [selectedLocation]);
+
+  // Initialize Three.js WebGL Scene
+  const sceneObjectsRef = useRef<{
+    planetMesh?: THREE.Mesh;
+    cloudMesh?: THREE.Mesh;
+    gridMesh?: THREE.LineSegments;
+    atmoMaterial?: THREE.ShaderMaterial;
+  }>({});
+
+  useEffect(() => {
+    const container = mountRef.current;
+    if (!container) return;
+
+    const width = container.clientWidth || 480;
+    const height = container.clientHeight || 480;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
+    camera.position.set(0, 0, zoomDistanceRef.current);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.innerHTML = '';
+    container.appendChild(renderer.domElement);
+
+    // Lighting setup for realistic sunlit satellite globe + shadowed terminator
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    scene.add(ambientLight);
+
+    const sunLight = new THREE.DirectionalLight(0xffffff, 1.55);
+    sunLight.position.set(4.5, 2.5, 4.5);
+    scene.add(sunLight);
+
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.65);
+    rimLight.position.set(-4, -2, -2.5);
+    scene.add(rimLight);
+
+    // Pivot Group that rotates the planet, clouds, and lat/lon grid together
+    const globeGroup = new THREE.Group();
+    scene.add(globeGroup);
+
+    // Main High-Res Planet Sphere
+    const sphereGeo = new THREE.SphereGeometry(1, 64, 64);
+    const { map, bumpMap, cloudsMap } = createPlanetaryTexture(worldKey, activeOverlay);
+
+    const planetMat = new THREE.MeshPhongMaterial({
+      map,
+      bumpMap,
+      bumpScale: 0.025,
+      specular: new THREE.Color(worldKey === 'Earth' ? 0x334155 : 0x1e293b),
+      shininess: worldKey === 'Earth' ? 22 : 5
+    });
+    const planetMesh = new THREE.Mesh(sphereGeo, planetMat);
+    globeGroup.add(planetMesh);
+
+    // Cloud / Atmospheric Layer Sphere
+    const cloudGeo = new THREE.SphereGeometry(1.014, 64, 64);
+    const cloudMat = new THREE.MeshPhongMaterial({
+      map: cloudsMap || null,
+      transparent: true,
+      opacity: cloudsMap ? 0.85 : 0,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    });
+    const cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
+    globeGroup.add(cloudMesh);
+
+    // Optional Lat/Lon Graticule Wireframe
+    const wireGeo = new THREE.WireframeGeometry(new THREE.SphereGeometry(1.005, 24, 12));
+    const wireMat = new THREE.LineBasicMaterial({
+      color: 0x38bdf8,
+      transparent: true,
+      opacity: showGridLines ? 0.18 : 0
+    });
+    const gridMesh = new THREE.LineSegments(wireGeo, wireMat);
+    globeGroup.add(gridMesh);
+
+    // Realistic Atmospheric Fresnel Rim Glow Shader Sphere
+    const atmoGeo = new THREE.SphereGeometry(1.12, 64, 64);
+    const atmoMat = new THREE.ShaderMaterial({
+      uniforms: {
+        glowColor: { value: new THREE.Color(PLANET_DATA[worldKey].atmosphereColor) }
+      },
+      vertexShader: `
+        varying vec3 vNormal;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        uniform vec3 glowColor;
+        varying vec3 vNormal;
+        void main() {
+          float intensity = pow(0.66 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.8);
+          gl_FragColor = vec4(glowColor, 1.0) * intensity * 1.15;
+        }
+      `,
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide,
+      transparent: true,
+      depthWrite: false
+    });
+    const atmoMesh = new THREE.Mesh(atmoGeo, atmoMat);
+    scene.add(atmoMesh);
+
+    sceneObjectsRef.current = {
+      planetMesh,
+      cloudMesh,
+      gridMesh,
+      atmoMaterial: atmoMat
+    };
+
+    // Mouse & Touch Drag Handlers
+    const onPointerDown = (clientX: number, clientY: number) => {
+      isDraggingRef.current = true;
+      targetRotationRef.current = null; // Cancel auto-focus lerp when user drags
+      prevMouseRef.current = { x: clientX, y: clientY };
+    };
+
+    const onPointerMove = (clientX: number, clientY: number) => {
+      if (!isDraggingRef.current) return;
+      const dx = clientX - prevMouseRef.current.x;
+      const dy = clientY - prevMouseRef.current.y;
+      currentRotRef.current.y += dx * 0.0065;
+      currentRotRef.current.x = Math.max(
+        -1.1,
+        Math.min(1.1, currentRotRef.current.x + dy * 0.0055)
+      );
+      prevMouseRef.current = { x: clientX, y: clientY };
+    };
+
+    const onPointerUp = () => {
+      isDraggingRef.current = false;
+    };
+
+    const domElem = renderer.domElement;
+    const handleMouseDown = (e: MouseEvent) => onPointerDown(e.clientX, e.clientY);
+    const handleMouseMove = (e: MouseEvent) => onPointerMove(e.clientX, e.clientY);
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        onPointerDown(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        onPointerMove(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      setZoomDistance((prev) => Math.max(1.85, Math.min(3.5, prev + e.deltaY * 0.0012)));
+    };
+
+    domElem.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', onPointerUp);
+    domElem.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', onPointerUp);
+    domElem.addEventListener('wheel', handleWheel, { passive: false });
+
+    // Responsive resize observer
+    const handleResize = () => {
+      if (!container) return;
+      const w = container.clientWidth || 480;
+      const h = container.clientHeight || 480;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Animation & 3D Pin Projection Loop
+    let frameId: number;
+    let lastPinUpdate = 0;
+
+    const animate = (timestamp: number) => {
+      frameId = requestAnimationFrame(animate);
+
+      // Smoothly interpolate toward target pin if recently selected, or auto-spin
+      if (targetRotationRef.current) {
+        const dy = targetRotationRef.current.y - currentRotRef.current.y;
+        const dx = targetRotationRef.current.x - currentRotRef.current.x;
+        currentRotRef.current.y += dy * 0.07;
+        currentRotRef.current.x += dx * 0.07;
+        if (Math.abs(dy) < 0.004 && Math.abs(dx) < 0.004) {
+          targetRotationRef.current = null;
+        }
+      } else if (autoSpinRef.current && !isDraggingRef.current) {
+        currentRotRef.current.y += 0.0028;
+      }
+
+      globeGroup.rotation.y = currentRotRef.current.y;
+      globeGroup.rotation.x = currentRotRef.current.x + (is3DTiltRef.current ? 0.35 : 0);
+
+      // Subtle atmospheric cloud drift
+      if (cloudMesh) {
+        cloudMesh.rotation.y += 0.00045;
+      }
+
+      // Smooth camera zoom
+      camera.position.z += (zoomDistanceRef.current - camera.position.z) * 0.1;
+      camera.lookAt(0, 0, 0);
+
+      renderer.render(scene, camera);
+
+      // Project 3D surface coordinates of all pins to 2D overlay coordinates (~30fps)
+      if (timestamp - lastPinUpdate > 28) {
+        lastPinUpdate = timestamp;
+        globeGroup.updateMatrixWorld();
+        const w = container.clientWidth || 480;
+        const h = container.clientHeight || 480;
+        const camDir = camera.position.clone().normalize();
+
+        const nextPins: ProjectedPin[] = locationsRef.current.map((site) => {
+          const localVec = latLonToVector3(site.lat, site.lon, 1.01);
+          const worldVec = localVec.clone().applyMatrix4(globeGroup.matrixWorld);
+
+          // Check if pin is on the front hemisphere facing the camera
+          const surfaceNormal = worldVec.clone().normalize();
+          const dot = surfaceNormal.dot(camDir);
+          const visible = dot > 0.08;
+
+          const projected = worldVec.clone().project(camera);
+          const screenX = (projected.x * 0.5 + 0.5) * w;
+          const screenY = (-projected.y * 0.5 + 0.5) * h;
+
+          return {
+            site,
+            x: screenX,
+            y: screenY,
+            visible,
+            scale: Math.max(0.65, Math.min(1.15, 0.7 + dot * 0.45)),
+            zDepth: dot
+          };
+        });
+
+        setProjectedPins(nextPins);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      domElem.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', onPointerUp);
+      domElem.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', onPointerUp);
+      domElem.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('resize', handleResize);
+      renderer.dispose();
+    };
+  }, []);
+
+  // Dynamically load REAL photographic satellite textures (plus bump, specular & clouds) when switching worlds
+  useEffect(() => {
+    let isCancelled = false;
+    const { planetMesh, cloudMesh, gridMesh, atmoMaterial } = sceneObjectsRef.current;
+    if (!planetMesh) return;
+
+    const worldConfig = PLANET_DATA[worldKey];
+    const texLoader = new THREE.TextureLoader();
+    texLoader.setCrossOrigin('anonymous');
+
+    if (gridMesh) {
+      const gMat = gridMesh.material as THREE.LineBasicMaterial;
+      gMat.opacity = showGridLines ? 0.22 : 0;
+    }
+
+    if (atmoMaterial) {
+      atmoMaterial.uniforms.glowColor.value = new THREE.Color(worldConfig.atmosphereColor);
+    }
+
+    // Load real satellite surface image with fallback chain and apply optional data overlays
+    loadImageWithFallback(worldConfig.textureUrls).then((surfaceImg) => {
+      if (isCancelled || !planetMesh) return;
+
+      const { map, bumpMap, cloudsMap } = createPlanetaryTexture(
+        worldKey,
+        activeOverlay,
+        surfaceImg
+      );
+
+      const mat = planetMesh.material as THREE.MeshPhongMaterial;
+      mat.map = map;
+      mat.bumpMap = bumpMap;
+      mat.bumpScale = worldKey === 'Moon' ? 0.032 : worldKey === 'Mars' ? 0.028 : 0.02;
+      mat.specular = new THREE.Color(worldKey === 'Earth' ? 0x3b82f6 : 0x222222);
+      mat.shininess = worldKey === 'Earth' ? 24 : 5;
+      mat.needsUpdate = true;
+
+      // Load dedicated high-res normal/bump map if available
+      if (worldConfig.bumpUrls && worldConfig.bumpUrls.length > 0) {
+        loadImageWithFallback(worldConfig.bumpUrls).then((bumpImg) => {
+          if (isCancelled || !bumpImg) return;
+          const bTex = new THREE.Texture(bumpImg);
+          bTex.needsUpdate = true;
+          mat.bumpMap = bTex;
+          mat.needsUpdate = true;
+        });
+      }
+
+      // Load Earth ocean specular map
+      if (worldConfig.specularUrls && worldConfig.specularUrls.length > 0) {
+        loadImageWithFallback(worldConfig.specularUrls).then((specImg) => {
+          if (isCancelled || !specImg) return;
+          const sTex = new THREE.Texture(specImg);
+          sTex.needsUpdate = true;
+          mat.specularMap = sTex;
+          mat.needsUpdate = true;
+        });
+      } else {
+        mat.specularMap = null;
+        mat.needsUpdate = true;
+      }
+
+      // Load real photographic cloud layer for Earth
+      if (cloudMesh) {
+        const cMat = cloudMesh.material as THREE.MeshPhongMaterial;
+        if (worldConfig.cloudUrls && worldConfig.cloudUrls.length > 0) {
+          loadImageWithFallback(worldConfig.cloudUrls).then((cloudImg) => {
+            if (isCancelled) return;
+            if (cloudImg) {
+              const cTex = new THREE.Texture(cloudImg);
+              cTex.needsUpdate = true;
+              cMat.map = cTex;
+              cMat.opacity = 0.88;
+              cMat.needsUpdate = true;
+            } else {
+              cMat.map = cloudsMap || null;
+              cMat.opacity = cloudsMap ? 0.75 : 0;
+              cMat.needsUpdate = true;
+            }
+          });
+        } else {
+          cMat.map = cloudsMap || null;
+          cMat.opacity = worldKey === 'Mars' ? 0.35 : 0;
+          cMat.needsUpdate = true;
+        }
+      }
+    });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [worldKey, activeOverlay, showGridLines]);
+
+  const handleResetView = () => {
+    setZoomDistance(2.75);
+    setIs3DTilt(false);
+    if (selectedLocation) {
+      const lonRad = (selectedLocation.lon * Math.PI) / 180;
+      const latRad = (selectedLocation.lat * Math.PI) / 180;
+      targetRotationRef.current = {
+        y: -lonRad - Math.PI / 2,
+        x: Math.max(-0.65, Math.min(0.65, latRad * 0.65))
+      };
+    }
+  };
+
+  const worldMeta = PLANET_DATA[worldKey];
+
+  return (
+    <div className="relative w-full h-full flex flex-col items-center justify-center select-none">
+      {/* Outer Orbital Ring & Sci-Fi Halo matching reference image */}
+      <div className="relative w-[320px] h-[320px] sm:w-[410px] sm:h-[410px] xl:w-[450px] xl:h-[450px] flex items-center justify-center">
+        {/* Decorative glowing orbital arc */}
+        <svg
+          className="absolute inset-[-6%] w-[112%] h-[112%] pointer-events-none animate-[spin_50s_linear_infinite]"
+          viewBox="0 0 400 400"
+        >
+          <defs>
+            <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor={worldMeta.atmosphereColor} stopOpacity="0.85" />
+              <stop offset="40%" stopColor={worldMeta.atmosphereColor} stopOpacity="0.1" />
+              <stop offset="80%" stopColor={worldMeta.atmosphereColor} stopOpacity="0.0" />
+              <stop offset="100%" stopColor={worldMeta.atmosphereColor} stopOpacity="0.65" />
+            </linearGradient>
+          </defs>
+          <circle
+            cx="200"
+            cy="200"
+            r="192"
+            fill="none"
+            stroke="url(#orbitGrad)"
+            strokeWidth="1.6"
+            strokeDasharray="160 90 220 120"
+          />
+          <circle cx="200" cy="8" r="3" fill={worldMeta.atmosphereColor} />
+          <circle cx="385" cy="252" r="2.5" fill={worldMeta.atmosphereColor} />
+        </svg>
+
+        {/* Radial Planetary Atmosphere Glow */}
+        <div
+          className="absolute inset-[7%] rounded-full pointer-events-none transition-all duration-700"
+          style={{
+            boxShadow: `0 0 70px 18px ${worldMeta.glowRgba}, inset 0 0 45px ${worldMeta.glowRgba}`
+          }}
+        />
+
+        {/* Three.js WebGL Globe Container */}
+        <div
+          ref={mountRef}
+          className="relative w-full h-full cursor-grab active:cursor-grabbing z-10"
+          title="Drag to rotate 3D globe • Scroll to zoom"
+        />
+
+        {/* 3D Surface-Anchored Pinpoint Markers Overlay */}
+        <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+          {projectedPins.map(({ site, x, y, visible, scale, zDepth }) => {
+            if (!visible) return null;
+            const isSelected = selectedLocation.id === site.id;
+
+            const badgeColorClasses =
+              site.pinColor === 'green'
+                ? 'text-emerald-400 drop-shadow-[0_0_10px_rgba(34,197,94,0.9)]'
+                : site.pinColor === 'yellow'
+                ? 'text-amber-400 drop-shadow-[0_0_10px_rgba(234,179,8,0.9)]'
+                : 'text-rose-500 drop-shadow-[0_0_12px_rgba(239,68,68,0.95)]';
+
+            return (
+              <button
+                key={site.id}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSelectLocation(site);
+                }}
+                style={{
+                  left: `${x}px`,
+                  top: `${y}px`,
+                  transform: `translate(-50%, -90%) scale(${isSelected ? scale * 1.25 : scale})`,
+                  zIndex: isSelected ? 50 : Math.round(zDepth * 30)
+                }}
+                className="absolute pointer-events-auto group focus:outline-none transition-transform duration-150"
+                aria-label={`Select ${site.name}`}
+              >
+                {/* Glowing concentric target rings for selected or hovered pin */}
+                {isSelected && (
+                  <>
+                    <span
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-2 animate-ping opacity-70"
+                      style={{ borderColor: site.pinHex }}
+                    />
+                    <span
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full border"
+                      style={{
+                        borderColor: site.pinHex,
+                        boxShadow: `0 0 18px ${site.pinHex}`
+                      }}
+                    />
+                  </>
+                )}
+
+                {/* Teardrop Pin SVG matching reference screenshot */}
+                <div className={`relative flex items-center justify-center ${badgeColorClasses}`}>
+                  <svg
+                    viewBox="0 0 36 44"
+                    className="w-8 h-10 transition-transform group-hover:scale-110"
+                  >
+                    <path
+                      d="M18 2C9.7 2 3 8.7 3 17c0 10.8 15 24.5 15 24.5S33 27.8 33 17c0-8.3-6.7-15-15-15z"
+                      fill={site.pinHex}
+                      stroke="#ffffff"
+                      strokeWidth="2.2"
+                    />
+                    <circle cx="18" cy="16.5" r="5.5" fill="#0f172a" />
+                    <circle cx="18" cy="16.5" r="2.8" fill="#ffffff" />
+                  </svg>
+                </div>
+
+                {/* Floating HUD Micro-Tooltip on Hover / Selection */}
+                <div
+                  className={`
+                    absolute left-1/2 -translate-x-1/2 -top-8 whitespace-nowrap px-2.5 py-0.5 rounded-full
+                    text-[10px] font-bold tracking-wide bg-slate-950/90 border border-slate-700/80 text-white
+                    shadow-lg transition-opacity duration-200 pointer-events-none
+                    ${isSelected ? 'opacity-100 border-cyan-400/60' : 'opacity-0 group-hover:opacity-100'}
+                  `}
+                >
+                  {site.name.split(',')[0]}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Right-Side Vertical Globe Control Stack (+, -, Rotate/Reset, 3D) as in reference */}
+        <div className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2.5 z-30">
+          <button
+            type="button"
+            onClick={() => setZoomDistance((d) => Math.max(1.85, d - 0.25))}
+            className="w-10 h-10 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/80 hover:border-cyan-400 text-slate-200 hover:text-cyan-300 flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.6)] transition-all"
+            title="Zoom In"
+          >
+            <Plus className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setZoomDistance((d) => Math.min(3.5, d + 0.25))}
+            className="w-10 h-10 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/80 hover:border-cyan-400 text-slate-200 hover:text-cyan-300 flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.6)] transition-all"
+            title="Zoom Out"
+          >
+            <Minus className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setAutoSpin((s) => !s)}
+            onDoubleClick={handleResetView}
+            className={`w-10 h-10 rounded-full backdrop-blur-md border flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.6)] transition-all ${
+              autoSpin
+                ? 'bg-cyan-950/70 border-cyan-400/70 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.35)]'
+                : 'bg-slate-900/85 border-slate-700/80 text-slate-300 hover:border-cyan-400'
+            }`}
+            title={autoSpin ? 'Pause Planet Spin (Double-click to reset)' : 'Resume Planet Spin'}
+          >
+            <RotateCcw className={`w-4 h-4 ${autoSpin ? 'animate-[spin_9s_linear_infinite]' : ''}`} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setIs3DTilt((t) => !t)}
+            className={`w-10 h-10 rounded-full backdrop-blur-md border text-xs font-extrabold tracking-tight flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.6)] transition-all ${
+              is3DTilt
+                ? 'bg-cyan-950/70 border-cyan-400 text-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.35)]'
+                : 'bg-slate-900/85 border-slate-700/80 text-slate-200 hover:border-cyan-400'
+            }`}
+            title="Toggle 3D Orbital Camera Tilt"
+          >
+            3D
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ==========================================
+// SHARED SCI-FI UI COMPONENTS
+// ==========================================
+
+const GlassPanel: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+  glowColor?: 'cyan' | 'orange' | 'slate';
+}> = ({ children, className = '', glowColor = 'cyan' }) => {
+  const borderStyles =
+    glowColor === 'orange'
+      ? 'border-orange-500/40 shadow-[0_0_25px_rgba(249,115,22,0.12)]'
+      : glowColor === 'slate'
+      ? 'border-slate-600/60 shadow-[0_0_20px_rgba(148,163,184,0.1)]'
+      : 'border-cyan-500/40 shadow-[0_0_25px_rgba(6,182,212,0.14)]';
+
+  return (
+    <div
+      className={`relative overflow-hidden rounded-2xl bg-slate-950/65 backdrop-blur-xl border ${borderStyles} text-slate-100 ${className}`}
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-transparent to-cyan-500/[0.03] pointer-events-none" />
+      {children}
+    </div>
+  );
+};
+
+const ProgressBar: React.FC<{
+  label: string;
+  value: number;
+  icon?: React.ComponentType<{ className?: string }>;
+  colorClass?: string;
+}> = ({ label, value, icon: Icon, colorClass = 'bg-cyan-400' }) => (
+  <div className="flex items-center gap-3 text-xs sm:text-sm my-1.5">
+    {Icon && <Icon className="w-4 h-4 text-cyan-400 shrink-0" />}
+    <span className="w-28 font-medium text-slate-300 truncate">{label}</span>
+    <div className="flex-1 h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-700/80">
+      <div
+        className={`h-full ${colorClass} shadow-[0_0_10px_currentcolor] transition-all duration-700 ease-out`}
+        style={{ width: `${value}%` }}
+      />
+    </div>
+    <span className="w-9 text-right font-mono font-bold text-white">{value}%</span>
+  </div>
+);
+
+const CircularScore: React.FC<{ score: number }> = ({ score }) => {
+  const radius = 38;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (score / 100) * circumference;
+
+  return (
+    <div className="relative flex items-center justify-center p-2">
+      <svg className="transform -rotate-90 w-28 h-28">
+        <circle
+          className="text-slate-800"
+          strokeWidth="8"
+          stroke="currentColor"
+          fill="transparent"
+          r={radius}
+          cx="56"
+          cy="56"
+        />
+        <circle
+          className="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all duration-700 ease-out"
+          strokeWidth="8"
+          strokeDasharray={circumference}
+          strokeDashoffset={strokeDashoffset}
+          strokeLinecap="round"
+          stroke="currentColor"
+          fill="transparent"
+          r={radius}
+          cx="56"
+          cy="56"
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-2xl font-black text-white tracking-tight">
+          {score}
+          <span className="text-sm text-cyan-400">%</span>
+        </span>
+      </div>
+    </div>
+  );
+};
+
+// Realistic Photographic Planet Thumbnail for "SELECT A WORLD" cards
+const PlanetMiniThumb: React.FC<{ world: 'Mars' | 'Moon' | 'Earth' }> = ({ world }) => {
+  const photoConfig = {
+    Mars: {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/240px-OSIRIS_Mars_true_color.jpg',
+      fallback: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=200',
+      border: 'border-orange-400/60 shadow-[0_0_15px_rgba(249,115,22,0.55)]',
+      bg: 'bg-orange-950'
+    },
+    Moon: {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/240px-FullMoon2010.jpg',
+      fallback: 'https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&q=80&w=200',
+      border: 'border-slate-300/60 shadow-[0_0_15px_rgba(148,163,184,0.5)]',
+      bg: 'bg-slate-900'
+    },
+    Earth: {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/240px-The_Earth_seen_from_Apollo_17.jpg',
+      fallback: 'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=80&w=200',
+      border: 'border-cyan-400/70 shadow-[0_0_16px_rgba(6,182,212,0.65)]',
+      bg: 'bg-sky-950'
+    }
+  }[world];
+
+  return (
+    <div
+      className={`relative w-12 h-12 rounded-full shrink-0 overflow-hidden border ${photoConfig.border} ${photoConfig.bg}`}
+    >
+      <img
+        src={photoConfig.src}
+        alt={world}
+        onError={(e) => {
+          const target = e.currentTarget;
+          if (target.src !== photoConfig.fallback) {
+            target.src = photoConfig.fallback;
+          }
+        }}
+        className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-500"
+      />
+      {/* 3D spherical inner shading */}
+      <div className="absolute inset-0 rounded-full shadow-[inset_-6px_-6px_12px_rgba(0,0,0,0.8),inset_2px_2px_6px_rgba(255,255,255,0.25)] pointer-events-none" />
+    </div>
+  );
+};
+
+// ==========================================
+// VIEW 1: COMPARE LOCATIONS VIEW
+// ==========================================
+
+interface CompareViewProps {
+  primarySite: SiteLocation;
+  onSelectSiteForCompare: (site: SiteLocation) => void;
+}
+
+const CompareView: React.FC<CompareViewProps> = ({ primarySite, onSelectSiteForCompare }) => {
+  // Find matching pair site across worlds
+  const allSites = useMemo(
+    () => [
+      ...PLANET_DATA.Mars.locations,
+      ...PLANET_DATA.Moon.locations,
+      ...PLANET_DATA.Earth.locations
+    ],
+    []
+  );
+
+  const matchedSite = useMemo(() => {
+    return (
+      allSites.find((s) => s.id === primarySite.matchingSiteId) ||
+      PLANET_DATA.Earth.locations[0]
+    );
+  }, [allSites, primarySite]);
+
+  const leftSite = primarySite.world === 'Earth' ? matchedSite : primarySite;
+  const rightSite = primarySite.world === 'Earth' ? primarySite : matchedSite;
+
+  return (
+    <div className="flex flex-col gap-6 animate-in fade-in duration-500">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-800/80 pb-4">
+        <div>
+          <h2 className="text-3xl font-extrabold text-white tracking-wide">
+            Compare <span className="text-cyan-400">Planetary Safe Zones & Earth Analogs</span>
+          </h2>
+          <p className="text-slate-400 text-sm mt-1">
+            Side-by-side environmental, geological, and landing safety analysis powered by NASA datasets
+          </p>
+        </div>
+
+        {/* Site Switcher Dropdown */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
+            Target Site:
+          </span>
+          <select
+            value={primarySite.id}
+            onChange={(e) => {
+              const found = allSites.find((s) => s.id === e.target.value);
+              if (found) onSelectSiteForCompare(found);
+            }}
+            className="bg-slate-900/90 border border-cyan-500/40 rounded-lg px-3 py-2 text-xs sm:text-sm text-white font-medium focus:outline-none focus:border-cyan-400"
+          >
+            {allSites.map((s) => (
+              <option key={s.id} value={s.id}>
+                [{s.world}] {s.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="flex flex-col lg:flex-row items-stretch gap-6">
+        {/* Planetary Target Card (Mars or Moon) */}
+        <GlassPanel className="flex-1 p-5" glowColor="orange">
+          <div className="flex justify-between items-start border-b border-slate-800 pb-4 mb-4">
+            <div className="flex items-center gap-3.5">
+              <PlanetMiniThumb world={leftSite.world} />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-orange-500/20 text-orange-300 border border-orange-500/30">
+                    {leftSite.world} Target Zone
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    {leftSite.safetyStatus}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-white mt-1">{leftSite.name}</h3>
+                <p className="text-slate-400 text-xs">{leftSite.subtitle}</p>
+              </div>
+            </div>
+            <div className="text-orange-300 text-xs font-mono bg-orange-950/40 border border-orange-500/30 px-2.5 py-1 rounded">
+              {Math.abs(leftSite.lat)}° {leftSite.lat >= 0 ? 'N' : 'S'}, {Math.abs(leftSite.lon)}°{' '}
+              {leftSite.lon >= 0 ? 'E' : 'W'}
+            </div>
+          </div>
+
+          <div className="h-44 rounded-xl overflow-hidden mb-4 relative border border-slate-700/60">
+            <img src={leftSite.img} alt={leftSite.name} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+            <div className="absolute bottom-2.5 left-3 right-3 flex justify-between items-center text-xs">
+              <span className="bg-slate-950/80 backdrop-blur px-2.5 py-1 rounded border border-slate-700 text-slate-200">
+                Slope: <strong className="text-emerald-400">{leftSite.slope}</strong>
+              </span>
+              <span className="bg-slate-950/80 backdrop-blur px-2.5 py-1 rounded border border-slate-700 text-slate-200">
+                Elevation: {leftSite.elevation}
+              </span>
+            </div>
+          </div>
+
+          <div className="grid gap-2.5 text-sm">
+            <div className="flex justify-between border-b border-slate-800/80 pb-2">
+              <span className="flex items-center gap-2 text-slate-400">
+                <Thermometer className="w-4 h-4 text-orange-400" /> Temperature
+              </span>
+              <span className="font-mono text-slate-100">{leftSite.temp}</span>
+            </div>
+            <div className="flex justify-between border-b border-slate-800/80 pb-2">
+              <span className="flex items-center gap-2 text-slate-400">
+                <Mountain className="w-4 h-4 text-orange-400" /> Terrain & Slope
+              </span>
+              <span className="font-mono text-slate-100">{leftSite.terrain}</span>
+            </div>
+            <div className="flex justify-between border-b border-slate-800/80 pb-2">
+              <span className="flex items-center gap-2 text-slate-400">
+                <Layers className="w-4 h-4 text-orange-400" /> Pressure / Env
+              </span>
+              <span className="font-mono text-slate-100">{leftSite.atmosphereOrPressure}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="flex items-center gap-2 text-slate-400">
+                <Hexagon className="w-4 h-4 text-orange-400" /> Composition
+              </span>
+              <span className="font-mono text-slate-100">{leftSite.composition}</span>
+            </div>
+          </div>
+        </GlassPanel>
+
+        {/* Center Sync Badge */}
+        <div className="flex lg:flex-col items-center justify-center shrink-0 py-2">
+          <div className="w-12 h-12 rounded-full bg-slate-900 border border-cyan-500/50 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+            <ArrowRightLeft className="w-5 h-5 text-cyan-400" />
+          </div>
+          <span className="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mt-2 text-center">
+            {leftSite.similarityScores.overall}% Match
+          </span>
+        </div>
+
+        {/* Earth Analog Card */}
+        <GlassPanel className="flex-1 p-5" glowColor="cyan">
+          <div className="flex justify-between items-start border-b border-slate-800 pb-4 mb-4">
+            <div className="flex items-center gap-3.5">
+              <PlanetMiniThumb world={rightSite.world} />
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                    Earth Field Analog
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-

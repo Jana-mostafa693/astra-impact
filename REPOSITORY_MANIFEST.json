@@ -1,0 +1,1220 @@
+{
+  "source_commit": "98def6b990633603d7a0d57262fa21d6ee702af4",
+  "github_upload": "NOT_COMPLETE_AUTHORIZED_TARGET_UNAVAILABLE",
+  "runtime_source_data_assets_unchanged": true,
+  "frontend_tests": 69,
+  "backend_tests": 79,
+  "runtime_coverage": {
+    "status": "PASS",
+    "fresh_venv_backend_startup": true,
+    "active_sites": 17,
+    "body_distribution": {
+      "Earth": 14,
+      "Mars": 1,
+      "Moon": 2
+    },
+    "chart_series_files": 104,
+    "current_comparison_rows": 420,
+    "recommendation_rows": 210,
+    "five_production_routes": true,
+    "backend_and_data_unchanged": true
+  },
+  "excluded_file_count": 79,
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 155,
+      "sha256": "182b7cd06b6dc1deab3ca6375fd581e0a363e688aa5880b20d05a1353ba6fd1a"
+    },
+    {
+      "path": ".env.example",
+      "bytes": 497,
+      "sha256": "bc9b7c7fcbbf7a821928f045d8f9415a3565d6ce1c073652e2c4312865b9762b"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 233,
+      "sha256": "8b9dc35dade258bc74635784e2eb16c70c040db63b24bd85a96b3be3bebbd7e2"
+    },
+    {
+      "path": "API_DOCUMENTATION.md",
+      "bytes": 4810,
+      "sha256": "8603fe75947d080be235a9af1db01169e6e7e6d86cf2e024e7c9d7bd657b4033"
+    },
+    {
+      "path": "ASSET_ATTRIBUTION.md",
+      "bytes": 1174,
+      "sha256": "c422961511939bcc6299a153ce4c6105e22a14c3a068d23d13b527c89a08ebc3"
+    },
+    {
+      "path": "CORRECTION_REPORT.md",
+      "bytes": 7055,
+      "sha256": "e57d44601688acc138b29ad6ae1afcf694a7d277644f8d36fa987619b6b28f98"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 685,
+      "sha256": "fb47261792edab55827d46c67e9ae031bbe82894cd873d68813ef4913a44c787"
+    },
+    {
+      "path": "EXCLUDED_FILES.csv",
+      "bytes": 9220,
+      "sha256": "75a721c453601c79702b14d60aa66250d8d9b488645fd4e2e45e209fc8e6c10e"
+    },
+    {
+      "path": "FINAL_QUALITY_REPORT.md",
+      "bytes": 7489,
+      "sha256": "eb958f0799e01786f7af1dbd53344941fa7a611ffe41b2f0c31bbdaf4fb42d50"
+    },
+    {
+      "path": "FRONTEND_DATA_REPLACEMENT_AUDIT.md",
+      "bytes": 6047,
+      "sha256": "5eb3d4337251a750829f04d6fe6c9f98b109d30e1d71603aa92c54a964d7a733"
+    },
+    {
+      "path": "GITHUB_DELIVERY.md",
+      "bytes": 5993,
+      "sha256": "c7b8a10097ce493998193208308d24d978d338b36d79f1b67e664e45afd5fd67"
+    },
+    {
+      "path": "INTEGRATION_REPORT.md",
+      "bytes": 7781,
+      "sha256": "6a6fd4bc0a5d2eea2a4c046718a858befc2a23b32afeaadd9bc40badfc954329"
+    },
+    {
+      "path": "KNOWN_LIMITATIONS.md",
+      "bytes": 5949,
+      "sha256": "676b30914509189e600beaa76c77dea5ab9f46d8ce991c479c42579bcbbeb459"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7426,
+      "sha256": "82bc6485fdd95e0e48ac0c5dbfe8ae33180adce3e5046f8da84f29e468f3dad8"
+    },
+    {
+      "path": "REDISTRIBUTION_REVIEW.md",
+      "bytes": 3792,
+      "sha256": "8b95091de14683d4c2551b6c48b4ed5e7bdb7529694281015865f1fc3c8f6ba5"
+    },
+    {
+      "path": "RUN_AND_DEPLOY.md",
+      "bytes": 4308,
+      "sha256": "58ccba0d4690ba200ab77d96335410ead0e6bc14e2e86a96977aee3e60fbea95"
+    },
+    {
+      "path": "SCIENTIFIC_DATA_MAPPING.md",
+      "bytes": 5744,
+      "sha256": "aed3720d5294cbd47cd3d8c64cb2de019a88141f2718c35279c016b6e02f0ba3"
+    },
+    {
+      "path": "TEST_RESULTS.md",
+      "bytes": 3761,
+      "sha256": "34c477f53a736f1df1d5c5cfb50b244f609440fde5b1dc1b2f44fc10df1ab8d3"
+    },
+    {
+      "path": "TEXT_PRESENTATION_REPORT.md",
+      "bytes": 4449,
+      "sha256": "0535c8539fbe9260a9c2b0cb2fbfe03f6c70b587d5d76d1babd51b40413c7d5e"
+    },
+    {
+      "path": "TODO.md",
+      "bytes": 9640,
+      "sha256": "329031e06dc7f4645442786c1a275230a861836b21bae18a03faaef2f4abd0c0"
+    },
+    {
+      "path": "app.config.ts",
+      "bytes": 124,
+      "sha256": "0b96112d6ebc70ac56c84c140557b7c66db92f0c1c6eee647dec8a84e6bde597"
+    },
+    {
+      "path": "backend/app/__init__.py",
+      "bytes": 44,
+      "sha256": "fdf55ceadc3f471737e52f909a432eede59db40b811ab12a96463fafa441cfc0"
+    },
+    {
+      "path": "backend/app/main.py",
+      "bytes": 2379,
+      "sha256": "e5dd8431bf1d673446b7808784863ab3170dbfdffee9c4082667dd1292059b2d"
+    },
+    {
+      "path": "backend/app/models.py",
+      "bytes": 1244,
+      "sha256": "384e8569b44db8918dd7c3980c441cfb41098d115ded11135d95780a79562c01"
+    },
+    {
+      "path": "backend/app/repository.py",
+      "bytes": 7843,
+      "sha256": "ed809fd6af9508d7283debb9ef977440bb469742313dbc171e303ad915796102"
+    },
+    {
+      "path": "backend/app/router.py",
+      "bytes": 12933,
+      "sha256": "dbd14b3a541651ae2fd56143b67c482f7f8e3261d77319e4cf81fa69e51471c7"
+    },
+    {
+      "path": "backend/app/scientific_schema.py",
+      "bytes": 1610,
+      "sha256": "f087e2d38517d3785755fab7d025684eaaaae6fd35e33b89d1ea8d5b304f308b"
+    },
+    {
+      "path": "backend/app/security.py",
+      "bytes": 1626,
+      "sha256": "c7bae281f01023ba3678638262a6c6ce8c056914643e2589f0d42c48fb61b602"
+    },
+    {
+      "path": "backend/requirements.txt",
+      "bytes": 88,
+      "sha256": "198f2b3bda3d9e6d09bc4ca9557c5879aa80ff382e10d443cadaf07c587bc815"
+    },
+    {
+      "path": "backend/tests/test_api.py",
+      "bytes": 3253,
+      "sha256": "9dfe8471ecf62975429961451ebf0aa81e2d9bcf82923b46b539bdcdf3598fc7"
+    },
+    {
+      "path": "backend/tests/test_final_guards.py",
+      "bytes": 2387,
+      "sha256": "deec06b79aa47ffc220b7bf56051667db85b6e0b4752311e3f89176e9470ac06"
+    },
+    {
+      "path": "backend/tests/test_five_pages.py",
+      "bytes": 709,
+      "sha256": "a4edf686500b1a4e0020c4829ea80cf6214bfcaec37668b1d5147edae11f112b"
+    },
+    {
+      "path": "backend/tests/test_science_contract.py",
+      "bytes": 4948,
+      "sha256": "8b87ca9809b33bfb8ed610649a56548ba5744dea8bcad367bdcab443d7de657d"
+    },
+    {
+      "path": "data/build_summary.json",
+      "bytes": 1362,
+      "sha256": "7dbb16228cbe44c6717101ebb6e8c609319047393cfc63121c77d65d7133ea60"
+    },
+    {
+      "path": "data/catalogs/data_dictionary.csv",
+      "bytes": 428324,
+      "sha256": "b049d801c0fbce6bc7a2e46e67db62cf4fe2a72ee323cecf50ec7a0aee026911"
+    },
+    {
+      "path": "data/catalogs/original_crater_profile_scores.csv",
+      "bytes": 1399,
+      "sha256": "11bb5b8184952c1cb755ec6cc902ea280cb51058fa2dbf5c78c49dfe35641a14"
+    },
+    {
+      "path": "data/catalogs/planetary_source_catalog.csv",
+      "bytes": 81364,
+      "sha256": "ff656c3d2b2bb79f1539a67f8a4c4eda6cca4766cd4d1b73afbc2e8af57bc27f"
+    },
+    {
+      "path": "data/catalogs/retained_crater_profiles.csv",
+      "bytes": 4540,
+      "sha256": "68fc3b33dd7f8a82d19ca10a1c7b931e177f594cac21936a9911edf2924e8f6d"
+    },
+    {
+      "path": "data/final_validation.json",
+      "bytes": 5500,
+      "sha256": "40333a7519d839acf8be8f534e7834c54e89e3aeb3b95d840e2dda66d98a4a31"
+    },
+    {
+      "path": "data/input_preservation_manifest.json",
+      "bytes": 585624,
+      "sha256": "5f91f89763f8e2db2051641148fe2e7d9debcd16751e758d2bb4679f1dc37f05"
+    },
+    {
+      "path": "data/package_manifest.json",
+      "bytes": 2238,
+      "sha256": "b25006c6172c1f6c3955cd9ca80f061fe7b039ff718ee4ed2e0f822174d163bf"
+    },
+    {
+      "path": "data/scientific_reports/DATA_COVERAGE_REPORT.md",
+      "bytes": 2733,
+      "sha256": "6e3aef3bb5d97ecb05def2dd8b3edee2bad201ad73453fa0d3664336a0a7129d"
+    },
+    {
+      "path": "data/scientific_reports/FINAL_DATA_QUALITY_REPORT.md",
+      "bytes": 3075,
+      "sha256": "17b6a41cbb264496ddb59d54c8279b76dbc5d22d398c3d67c0630154fa898798"
+    },
+    {
+      "path": "data/scientific_reports/FINAL_SCIENTIFIC_REPORT.md",
+      "bytes": 16725,
+      "sha256": "e16a8b633b61982be22fed9fdb7207540567c4a407996f5de08ecff4d9809005"
+    },
+    {
+      "path": "data/scientific_reports/README.md",
+      "bytes": 8460,
+      "sha256": "77abf3aa5fc5ccd1d673b98b53808f8eef8bd89fde25542a794a3b11a30c81c4"
+    },
+    {
+      "path": "data/scientific_reports/REPRODUCIBILITY_GUIDE.md",
+      "bytes": 8626,
+      "sha256": "5c1d1cfb495d2e4d091cd7afbda7598fe840e9bf2ed2f84636731b85b500a3c6"
+    },
+    {
+      "path": "data/scientific_reports/SCIENTIFIC_LIMITATIONS.md",
+      "bytes": 10444,
+      "sha256": "97643747ce699ee8a5a8a37f4915bd12dfb514f729b378656414675f168b0f64"
+    },
+    {
+      "path": "data/website_json/website_analog_recommendations.json",
+      "bytes": 1092008,
+      "sha256": "e0349474c4c3530170723edd8b4478fa10af2ab301513ef0f758d9727d58cfcb"
+    },
+    {
+      "path": "data/website_json/website_comparisons.json",
+      "bytes": 2828724,
+      "sha256": "a700dc6f14aaa70fd64d7e582c8c6ee6b8ac5139b599dbe20fa70b7b99250e14"
+    },
+    {
+      "path": "data/website_json/website_earth_details.json",
+      "bytes": 2146941,
+      "sha256": "a09038ea9c38e9d616b688c0d2d979d59be51324a8fb0723f8f244986a3c0348"
+    },
+    {
+      "path": "data/website_json/website_mars_details.json",
+      "bytes": 323211,
+      "sha256": "496a64a625d0568c6c7265a4e20a6f994f1f93351c15b3c29ce31fceee9f1c9f"
+    },
+    {
+      "path": "data/website_json/website_moon_details.json",
+      "bytes": 651135,
+      "sha256": "680211b9e602f738ef9932d14885883c27694b34411404275189a16a094ba2c4"
+    },
+    {
+      "path": "data/website_json/website_schema.json",
+      "bytes": 657,
+      "sha256": "6ef8ce5566a5c4ee93ea2552381ce5581ae8c353631ded3ef413e1bcfc8b9788"
+    },
+    {
+      "path": "data/website_json/website_sites.json",
+      "bytes": 2147500,
+      "sha256": "7b5e4f8ee5adb993c16451c8fc9741f30cb45db42a283b9329f906c8f0e833f5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_annual_climate.json",
+      "bytes": 37848,
+      "sha256": "17e28f4b6525ddd5ef4e4bd260606eb4bc9da4243b45963780b24bd7817046c1"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_climatology_months.json",
+      "bytes": 41409,
+      "sha256": "567364a908f9f84c5af256c9d55f51fcb38c5a7ee2b85080ca40cee91a8741b3"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_modis_8day.json",
+      "bytes": 471440,
+      "sha256": "857c0c549cc32d5f6fe0e3dc788fb736feeb741e85e876a1f15984ee44cbe249"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_monthly_climate.json",
+      "bytes": 365992,
+      "sha256": "4d8c10b101d67bc0d9b5d66d5998337c47e6d1b0edd8f0b1184e090859589b75"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_power_monthly.json",
+      "bytes": 83293,
+      "sha256": "fa8b4d6a36480da61620af3ce453a1089b493a9f431a0ee24042852204a2623e"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_soil_depth_profiles.json",
+      "bytes": 26482,
+      "sha256": "23a9d5ac2ee7260d0684291dc5dd867dcb22ad3dc74bc689853518933e6dcac3"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ATACAMA_solar_monthly.json",
+      "bytes": 101855,
+      "sha256": "7f560408590c2012446a24b3027b1736af00c32e559348d70ebd81198a6590a4"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_annual_climate.json",
+      "bytes": 37782,
+      "sha256": "7b4f2585844cc105cb6db661e0e3ce55a088ac72b5480336ca8644f7caf94fcb"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_climatology_months.json",
+      "bytes": 41249,
+      "sha256": "25c165af9b142214e9f5dbf9399f31cd5ad8ec5c69aed72b76fc470aa45d5df2"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_modis_8day.json",
+      "bytes": 465822,
+      "sha256": "33995c17d4b06e18d0df96957748eb574bb9602da84fcb66b2273c0d2d7d8750"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_monthly_climate.json",
+      "bytes": 365241,
+      "sha256": "d567f78045fa9a7e72c03e09c0940838aff280b030ba31fbc65891489590c8d5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_power_monthly.json",
+      "bytes": 82940,
+      "sha256": "d5c4b630aef6444a04c9ec1573ef9ac6f37c50d04a22eab391e2f6268dd0fd6c"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_soil_depth_profiles.json",
+      "bytes": 26013,
+      "sha256": "054a412316a5ca6886c651b355803bd8bdad7a676c6f8cd2a356093cd9662f01"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-DRYVALLEYS_solar_monthly.json",
+      "bytes": 100371,
+      "sha256": "b40535a84b88f57ecf5eb1a54b4a2002ed7f50c9f44c725547a43d911629f280"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_annual_climate.json",
+      "bytes": 38104,
+      "sha256": "31365f981b2382ac836041987b27c8e45dfb8ee16ea62841b00e463dd044e788"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_climatology_months.json",
+      "bytes": 41553,
+      "sha256": "87866fc5aa28bb60447c26c4dc970e8c367bd5dc2df0cb8ea9da8acfe6677d0a"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_modis_8day.json",
+      "bytes": 477333,
+      "sha256": "58f322870d30dfeb2f37645196c5a474226dc2edf61fa7bc5c4983d5c5517878"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_monthly_climate.json",
+      "bytes": 367844,
+      "sha256": "f1449cecb0c329f7f49aa747076f0dbebb776ba36a7cea763b069f370fe5ffbd"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_power_monthly.json",
+      "bytes": 84995,
+      "sha256": "d69a18279d2e6a4dfe9d296f49e4f45929c7ece3a2bed1c16fb8f6300a12cba7"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_soil_depth_profiles.json",
+      "bytes": 26546,
+      "sha256": "5904ee0a336924c7050cf6295aa67540d1b999baae4b64203756856509ac3707"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-HAUGHTON_solar_monthly.json",
+      "bytes": 102586,
+      "sha256": "2bf3b4fac81a3924c1d086c734eece69d83c9bdf9e1c609dbbf2f68e715c3b6d"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_annual_climate.json",
+      "bytes": 38047,
+      "sha256": "3eb59d65321493bad7a0a303c96ee5750d117ce6029465221fdf3a3f575bf771"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_climatology_months.json",
+      "bytes": 41616,
+      "sha256": "d23615e39ffa3a566dc430c4eb31e65a492d03cdde202f5fe773c6f528f8e421"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_modis_8day.json",
+      "bytes": 475197,
+      "sha256": "6fe06188ce396045a4720077aa14038230f10a0a3a82994676aef4d522ba2186"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_monthly_climate.json",
+      "bytes": 368076,
+      "sha256": "67abc4abc8c5d20236050b886808c5843341288eacaf6d4957fb40fa3ef520e5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_power_monthly.json",
+      "bytes": 84828,
+      "sha256": "88ea8f22a6fe233051cb448f29d3cf0616448c3e14750fb753cad5ae67702807"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_soil_depth_profiles.json",
+      "bytes": 26615,
+      "sha256": "924bf726ba553ae8109c611097a555fad89115599dbe94f256092e145965f875"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_solar_monthly.json",
+      "bytes": 102946,
+      "sha256": "05da50638a3f8ef7ec9b4f94447c515e8f72b280509af026e75de3153ecc4ecc"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_annual_climate.json",
+      "bytes": 37768,
+      "sha256": "56f375c8514e916866b74739db2ab732ce4f707c657847754391d02539fa6baa"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_climatology_months.json",
+      "bytes": 41321,
+      "sha256": "ee61a4d509d0e2756b5323de64fb355fd3b0d3515c2c21e56f2919f845972541"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_modis_8day.json",
+      "bytes": 456318,
+      "sha256": "b0399043d5bdcb445adc1c4bc18e0b293f456d7046a94a0c143a81640244d188"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_monthly_climate.json",
+      "bytes": 365545,
+      "sha256": "c04496e14932d6d0220faa26db52c87a7fe86cb9c582dbaaa934b3162a193e5e"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_power_monthly.json",
+      "bytes": 82264,
+      "sha256": "3ee0e4cfa9f28da709c15fb8735c2f6912d0ee6e89b6b99f63be0d99479cd33d"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_soil_depth_profiles.json",
+      "bytes": 26560,
+      "sha256": "13756abca9053a855a124ddea410b28159e1ff36c473d80475ec7a3912e27652"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-LONAR_solar_monthly.json",
+      "bytes": 100592,
+      "sha256": "7b2925dca1fabe13d0af9e75a59343e0d35816d661d893ce4c3e4f728e1c82de"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_annual_climate.json",
+      "bytes": 37605,
+      "sha256": "c4edb945060465edaa42fd0198795883eae8b0fcc95788ee83dbfa51502f6f02"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_climatology_months.json",
+      "bytes": 41115,
+      "sha256": "8c86c21c683cbf38f08569eae33a1b0b3b13a6597127acf1d9e813f3e10f5b37"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_modis_8day.json",
+      "bytes": 462240,
+      "sha256": "3936a0fb87f374db0643b89a3f8f65f870cf975decf1e7c6c1539deade5a07d7"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_monthly_climate.json",
+      "bytes": 362625,
+      "sha256": "f91e9da3fe726277473fc2a264db5a2f109765a69430965d3db082438a525ccb"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_power_monthly.json",
+      "bytes": 82084,
+      "sha256": "1ac581d7ce055d70e7710f6252867c66f0dba609ca6499615a856755f09a48e5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_soil_depth_profiles.json",
+      "bytes": 26136,
+      "sha256": "6c47e90f5a5a48a71ef38a27e59726d8765de0c4ee2d5ef1b94790d7c7a6a919"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MANICOUAGAN_solar_monthly.json",
+      "bytes": 100199,
+      "sha256": "47aefcc11645244718441743b78448858ad77f305fc2328c286be803b1dcc1a3"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_annual_climate.json",
+      "bytes": 38259,
+      "sha256": "0b59725265c29943d19334db9120c9cc38ed78bb7ae27ffde9d4c86d7f9e513e"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_climatology_months.json",
+      "bytes": 41921,
+      "sha256": "7fca9ac74cb3cfd1a0ef44c675029e790543b8198f826e9bbac2ce4e9db2d712"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_modis_8day.json",
+      "bytes": 466493,
+      "sha256": "932afbd2d87fdfb626c25c4968e508271de86a723e37e2f1e2a929a73548af4d"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_monthly_climate.json",
+      "bytes": 370573,
+      "sha256": "337a069fb515b4e3db9aa593e9b71650bda8d631c6c13136e0d5d0f6532e84b5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_power_monthly.json",
+      "bytes": 85120,
+      "sha256": "b2e67e28968fbe07550f659eec3f5fb307337c685fec726d3fab752993780b1b"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_soil_depth_profiles.json",
+      "bytes": 26638,
+      "sha256": "b0b70febce8e2923904bcda9ef26e4150ce74269bdf7a83a6a424c452f1195bf"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MAUNAKEA_solar_monthly.json",
+      "bytes": 103340,
+      "sha256": "97cab9f4f77fd6ca6be86c5a84c6df918810b4d80dc9e78348173aa54e1eaff1"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_annual_climate.json",
+      "bytes": 37942,
+      "sha256": "73647d4a181b16848bd6322d129f7185b5710c8acea70f5bcb0c114b2a678f2e"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_climatology_months.json",
+      "bytes": 41556,
+      "sha256": "937263eac102f8ef530675d4c500dbe669f5e7ca396e920d0c1e43c6461f24ae"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_modis_8day.json",
+      "bytes": 472745,
+      "sha256": "18fb1452689e2dc2a063d89872a74cc31b892d2d9ad3d2cf5231b3065f0a9b7f"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_monthly_climate.json",
+      "bytes": 367515,
+      "sha256": "8ca7d8079b84809af7e16409b950477fc95ec76105b1fff0534556d69eb58ef0"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_power_monthly.json",
+      "bytes": 84841,
+      "sha256": "83e7cb9ab7f52518d0bb1e445a3a9b267416e725151ed16b15147ca11b5446ed"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_soil_depth_profiles.json",
+      "bytes": 26620,
+      "sha256": "c169a32e4cf02eb1812a2b975fe639cc2b6d515b6ebe247a9b7fb1158d46b721"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-MOJAVE-AMB_solar_monthly.json",
+      "bytes": 103290,
+      "sha256": "b3aa113a09baa4771e242bce374dbf522dca760f30b2736b1ab85c0e8b328f59"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_annual_climate.json",
+      "bytes": 37655,
+      "sha256": "072157faf116cd5fd58d6714bcec0e3bfff355b803ab52c7cb60bcf9258a0d9a"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_climatology_months.json",
+      "bytes": 41189,
+      "sha256": "bbac765cb9e646083930ab45a972f974b000cbf8398c55984a7c310bbc1b59fb"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_modis_8day.json",
+      "bytes": 467195,
+      "sha256": "b9e8a5f4352fad89afc003685aae7e275918d210a39d04ee8d92c0462d81720f"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_monthly_climate.json",
+      "bytes": 364428,
+      "sha256": "7d2f3d1629c2068bbd8e494fd59b33b323383154902f33aac808a3faab3478b1"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_power_monthly.json",
+      "bytes": 82137,
+      "sha256": "e9a9a16e0e8b3e6bdedb13a301c72abaf0362d4f28dad42b5464c9c8f90091b6"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_soil_depth_profiles.json",
+      "bytes": 26352,
+      "sha256": "374a19dd033a6b5c54f58156caf91ba1ffb922755388b739e2c50b285b946313"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-NAMIB_solar_monthly.json",
+      "bytes": 100597,
+      "sha256": "449b40866e1f16638825096263eac64cb0cf3a30c01135106515e0be87ff13f5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_annual_climate.json",
+      "bytes": 37637,
+      "sha256": "64c92c12198e2659d3e04af16648c4bb31b442dd791558d045cc117361e35e42"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_climatology_months.json",
+      "bytes": 41225,
+      "sha256": "6e7bccd89a7ac3a3242360b3a87066c7af0f0b16309099fd2aa599b572443b61"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_modis_8day.json",
+      "bytes": 26315,
+      "sha256": "bad0f386c770b7dce592a0049d09612dbd52d4196dfd80691d8c35c6b7fcfeaa"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_monthly_climate.json",
+      "bytes": 364584,
+      "sha256": "59e2e154db822782dd7b71f270455e5a42effb60969d275c49acf485cb618924"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_power_monthly.json",
+      "bytes": 82702,
+      "sha256": "cfdafc4cc905345ad91dceea46bbd5d30b8936d06be03c809ed96503ef6662db"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_soil_depth_profiles.json",
+      "bytes": 26412,
+      "sha256": "0664e2c41ea8b04c1c1f8f15a99cb2a77038e8708b04c6a3a6dd5032405677fe"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-PILBARA_solar_monthly.json",
+      "bytes": 101082,
+      "sha256": "f6faccbaa51f3fbca7d89f2760e374044e89e81881aa4264aa98bc28a32598af"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_annual_climate.json",
+      "bytes": 37914,
+      "sha256": "560f73e238babbadfd1e9d009d21dfdb5ba31116fc300a3a748cb838d91b74e0"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_climatology_months.json",
+      "bytes": 41487,
+      "sha256": "a392168a279b8daa77844f94c322ac215df45f0075e52c6a93f908ef03209183"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_modis_8day.json",
+      "bytes": 470513,
+      "sha256": "4c8709874261caf07fe74c4b52ef74fe2c055f00aa6254655122f11c703415f2"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_monthly_climate.json",
+      "bytes": 366801,
+      "sha256": "3f934519d2164d1200dc27e875ed200738ce2b7a9d81e498c5c7a02fc16c7e86"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_power_monthly.json",
+      "bytes": 83838,
+      "sha256": "1d0524aba8e3100b6fa55d1209d43ebf5e70a400c30b5bd70e37f73f3fd9f034"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_soil_depth_profiles.json",
+      "bytes": 26465,
+      "sha256": "e6c4ff50f51709f849a3ce7c2ec7a18456b9f42dc8d27048bac17ce60ad821cc"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-RIES_solar_monthly.json",
+      "bytes": 102110,
+      "sha256": "82d1a1abea767aedd928a8aaff718d45054850434f541500f2fb43fc678427cb"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_annual_climate.json",
+      "bytes": 37490,
+      "sha256": "2f3972494f8ef04ab379eaf0d677ac29017daacde9514b7f79db58d05d48b3b6"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_climatology_months.json",
+      "bytes": 40979,
+      "sha256": "f4b1759161306007522ca0671942e11adb6e0f915f7fedcd7c5856137c0baafe"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_modis_8day.json",
+      "bytes": 458905,
+      "sha256": "b0c159d12b72a1ba2232e36ad0b275369e69992c548ce1d13af991fd6432c86f"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_monthly_climate.json",
+      "bytes": 361812,
+      "sha256": "a66af1010046d21deb2e50c8c25794bc83cc540020a5808b787eb77054b800bf"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_power_monthly.json",
+      "bytes": 81028,
+      "sha256": "25d2bd1857c0c0b19d062082e31ddf86dee1e00fb38065404b8f450866a14534"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_soil_depth_profiles.json",
+      "bytes": 26027,
+      "sha256": "fb9ca9a310e6d8d98a8d5140c2fa04657d9cc94dfe6ef43eaad7041a984bf9c5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-SUDBURY_solar_monthly.json",
+      "bytes": 99285,
+      "sha256": "0bd77c361af053106c3cf25b518556c5a109e3d1e8f16ba887cb1958b4bbf2f3"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_annual_climate.json",
+      "bytes": 37450,
+      "sha256": "f478fbca7d0621b3402f3cc3df62f30acd6c9a187c1b3fdb353c0945701f0aad"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_climatology_months.json",
+      "bytes": 40926,
+      "sha256": "e56f964d4a839fa311059b8af1d504e74ae04ad4182c03cdbdfccc7f7bafd928"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_modis_8day.json",
+      "bytes": 463499,
+      "sha256": "b342acba34a5771bf4d191305299c527fe256b88aedd2d0dff29d858cdb519a5"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_monthly_climate.json",
+      "bytes": 361447,
+      "sha256": "7c4be6f15c58ca643cf11cb69fa216c2b58f57cd44d0d42a73199eeffacdc614"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_power_monthly.json",
+      "bytes": 81458,
+      "sha256": "520b2e7893099cd718d1f3ebbdd0845e44dd69593bc9d28b4f8f12b7a1e4aad7"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_soil_depth_profiles.json",
+      "bytes": 28511,
+      "sha256": "b9a9580d7a9639b48c1df51365573bb8b94c22c37e2e5bd4c3ebbac2306d7b08"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-VREDEFORT_solar_monthly.json",
+      "bytes": 99790,
+      "sha256": "4d2a799867b57eaad1657060bd9d1688985b3d11e02170fd438b8145340b8772"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_annual_climate.json",
+      "bytes": 38054,
+      "sha256": "70536a4fc11e0dc99c950f083c92e7b50c44a1f045082d63eabd8af876825513"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_climatology_months.json",
+      "bytes": 41700,
+      "sha256": "8a0d434f629462c77e98b742cd6d0649fc4baffff03e1b1df9917bbe29a7851c"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_modis_8day.json",
+      "bytes": 36689,
+      "sha256": "381ee2d73e3107271fa3617da3fa4f0fc310eb5d4671e21fe7c46e8eac5b47f9"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_monthly_climate.json",
+      "bytes": 369063,
+      "sha256": "4ad01c3352a1ae2d597659b0f5ca13f63edc48cbb82c6ef08d165dfc803c3823"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_power_monthly.json",
+      "bytes": 84083,
+      "sha256": "90e008b30b80932bb9d809fdaded353d8c2d1afd43661e1b0dc36dd929e3b5f9"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_soil_depth_profiles.json",
+      "bytes": 26600,
+      "sha256": "7e949698dfcd29a6b700425847315a74c5fc447371ec29fc33cb8d316ea96caf"
+    },
+    {
+      "path": "data/website_timeseries/EARTH-WOLFE-CREEK_solar_monthly.json",
+      "bytes": 102493,
+      "sha256": "61dd5343e9a83dee285f85aa4f8170c5d3a03a11692098f055e04c9e33edea9e"
+    },
+    {
+      "path": "data/website_timeseries/MARS-HELLAS_mcd_seasonal.json",
+      "bytes": 650979,
+      "sha256": "61efb01f586dfe9b99efec418ffe250c5aef27ac84a1db912e1786ee6d94ead1"
+    },
+    {
+      "path": "data/website_timeseries/MARS-HELLAS_mcd_seasonal_summary.json",
+      "bytes": 24830,
+      "sha256": "4f6b17b2a7e90d2e02474a562d2e8434145fcfaf16a8a3beb69a941829b46d14"
+    },
+    {
+      "path": "data/website_timeseries/MARS-HELLAS_mcd_vertical_and_10m.json",
+      "bytes": 859099,
+      "sha256": "716a77fbb910930f5bb4be58f9bd9a97ab96057da5b3910ad800a975566c3dd2"
+    },
+    {
+      "path": "data/website_timeseries/MARS-HELLAS_tes_inertia.json",
+      "bytes": 7728,
+      "sha256": "277512ea1146fbf593ad325f65287dae008ee348eb180ba847dbe7d60ada1e87"
+    },
+    {
+      "path": "data/website_timeseries/MOON-MONS-MOUTON_diviner_local_time.json",
+      "bytes": 206507,
+      "sha256": "3db762c730832908e61394d72a7a81ef0d5e313f9506523abf397650ff2b7d66"
+    },
+    {
+      "path": "data/website_timeseries/MOON-ORIENTALE_diviner_local_time.json",
+      "bytes": 200890,
+      "sha256": "fae020b8413b37cbb05f78b71a46defc68fe714ecd9801e33cfa5b9f9038cc98"
+    },
+    {
+      "path": "frontend/dist/assets/index-B4SZ0GFY.js",
+      "bytes": 1130226,
+      "sha256": "c2286483e22b72e87cc808384fffb5b3aa8b07175a6cd2840c6b9966f549b6ae"
+    },
+    {
+      "path": "frontend/dist/assets/index-B5AK7OtF.css",
+      "bytes": 33100,
+      "sha256": "a90df278eeeddda722373f514831acb09c88eb1b25129a9caac6dc0c9d6418b4"
+    },
+    {
+      "path": "frontend/dist/index.html",
+      "bytes": 833,
+      "sha256": "e56beb59fdb14ca7173c4e1d53e30337014dc0fc4dbb645e0f400bc1b2b95fd9"
+    },
+    {
+      "path": "frontend/dist/manus-routes.json",
+      "bytes": 199,
+      "sha256": "f3b6c5c2503fec63c865d9f8dfb846ef7bdc308992dd20b83879b2ff20776e16"
+    },
+    {
+      "path": "frontend/dist/textures/earth_atmos_2048.jpg",
+      "bytes": 512606,
+      "sha256": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d"
+    },
+    {
+      "path": "frontend/dist/textures/earth_clouds_1024.png",
+      "bytes": 226113,
+      "sha256": "5f9612e4f4040975a195dd0d14e89c9ba72bd6bdd22e1454db4fcefb92d37d38"
+    },
+    {
+      "path": "frontend/dist/textures/earth_normal_2048.jpg",
+      "bytes": 336774,
+      "sha256": "3fc43e9639c34e8223c4a871e3bdf5b2d52ee79f7e89ce3f28cba45d4cac031a"
+    },
+    {
+      "path": "frontend/dist/textures/earth_original_thumbnail.jpg",
+      "bytes": 7546,
+      "sha256": "18c7df93ab2d1446bf3f0e5bff3edd39652c0064248d2f449467c9cae48997aa"
+    },
+    {
+      "path": "frontend/dist/textures/earth_specular_2048.jpg",
+      "bytes": 223421,
+      "sha256": "2df48906732d7a458b2d0a7cdec51a829262307c6bdee4cfdf079a4dd7c71c69"
+    },
+    {
+      "path": "frontend/dist/textures/mars_2k.jpg",
+      "bytes": 750547,
+      "sha256": "2d187f3e77a98eaa8cea5f4cc722f633c122ef170b9e94ace6b5fb6cbc3f8e01"
+    },
+    {
+      "path": "frontend/dist/textures/mars_original_thumbnail.jpg",
+      "bytes": 6299,
+      "sha256": "ffa325ce93851943963ee065ef8d942ebd2696f336c74ffe6b296700b48799d7"
+    },
+    {
+      "path": "frontend/dist/textures/moon_1024.jpg",
+      "bytes": 238093,
+      "sha256": "fcb0f1f5548e6e18d40063dd55c6aacd3daedf2407b181dab85b61e22bf9fe57"
+    },
+    {
+      "path": "frontend/dist/textures/moon_original_thumbnail.jpg",
+      "bytes": 6950,
+      "sha256": "8634fb3730c21f5b4c4569e09158084c463e926d87a8f6b1bd54109aa28c42f8"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 734,
+      "sha256": "f05991898402d5407d8955b96f3d7cfde9d7b8dc3852160d0dcd88d6ef25dec3"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 895,
+      "sha256": "b72af4013dea94a46f390db2505838eabcb2daf5bbae96d8196edaf6759b0502"
+    },
+    {
+      "path": "frontend/pnpm-lock.yaml",
+      "bytes": 77190,
+      "sha256": "19cb2d0c721994694af6e7430c38b866fbd2bf89b8f8703f999c2b8c8046ab29"
+    },
+    {
+      "path": "frontend/pnpm-workspace.yaml",
+      "bytes": 64,
+      "sha256": "231329d624e570d46e1fc2a24e076716cae47637eec03b42b700c056577ec2d8"
+    },
+    {
+      "path": "frontend/postcss.config.cjs",
+      "bytes": 69,
+      "sha256": "fe0d5cf3cb8c1922f71cca2da3796f3e63366623ad6164336655766efe330e6a"
+    },
+    {
+      "path": "frontend/public/manus-routes.json",
+      "bytes": 199,
+      "sha256": "f3b6c5c2503fec63c865d9f8dfb846ef7bdc308992dd20b83879b2ff20776e16"
+    },
+    {
+      "path": "frontend/public/textures/earth_atmos_2048.jpg",
+      "bytes": 512606,
+      "sha256": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d"
+    },
+    {
+      "path": "frontend/public/textures/earth_clouds_1024.png",
+      "bytes": 226113,
+      "sha256": "5f9612e4f4040975a195dd0d14e89c9ba72bd6bdd22e1454db4fcefb92d37d38"
+    },
+    {
+      "path": "frontend/public/textures/earth_normal_2048.jpg",
+      "bytes": 336774,
+      "sha256": "3fc43e9639c34e8223c4a871e3bdf5b2d52ee79f7e89ce3f28cba45d4cac031a"
+    },
+    {
+      "path": "frontend/public/textures/earth_original_thumbnail.jpg",
+      "bytes": 7546,
+      "sha256": "18c7df93ab2d1446bf3f0e5bff3edd39652c0064248d2f449467c9cae48997aa"
+    },
+    {
+      "path": "frontend/public/textures/earth_specular_2048.jpg",
+      "bytes": 223421,
+      "sha256": "2df48906732d7a458b2d0a7cdec51a829262307c6bdee4cfdf079a4dd7c71c69"
+    },
+    {
+      "path": "frontend/public/textures/mars_2k.jpg",
+      "bytes": 750547,
+      "sha256": "2d187f3e77a98eaa8cea5f4cc722f633c122ef170b9e94ace6b5fb6cbc3f8e01"
+    },
+    {
+      "path": "frontend/public/textures/mars_original_thumbnail.jpg",
+      "bytes": 6299,
+      "sha256": "ffa325ce93851943963ee065ef8d942ebd2696f336c74ffe6b296700b48799d7"
+    },
+    {
+      "path": "frontend/public/textures/moon_1024.jpg",
+      "bytes": 238093,
+      "sha256": "fcb0f1f5548e6e18d40063dd55c6aacd3daedf2407b181dab85b61e22bf9fe57"
+    },
+    {
+      "path": "frontend/public/textures/moon_original_thumbnail.jpg",
+      "bytes": 6950,
+      "sha256": "8634fb3730c21f5b4c4569e09158084c463e926d87a8f6b1bd54109aa28c42f8"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "bytes": 19894,
+      "sha256": "9e7b01a727edc8e78fdb2f799986184d155bf17bc2a0357674654c02886d367f"
+    },
+    {
+      "path": "frontend/src/charts/ScientificCharts.tsx",
+      "bytes": 19421,
+      "sha256": "07aa232f30bc0abaa2afa44589d8696cd64f8b8ee8bc1d8148d8038bc20522a5"
+    },
+    {
+      "path": "frontend/src/charts/TerrainProfileChart.tsx",
+      "bytes": 2604,
+      "sha256": "aa2e1243f6de6e98b02771cc05a7d001cecdf026955507b1f031f66b83a8ec56"
+    },
+    {
+      "path": "frontend/src/components/AnalogFinder.tsx",
+      "bytes": 5900,
+      "sha256": "023f3eacc56fb841f0fac22ab9419be680e0f0648c9a5d19d221802341b67c77"
+    },
+    {
+      "path": "frontend/src/components/CompareView.tsx",
+      "bytes": 13576,
+      "sha256": "58ba2c88cd63be55b00e08a041207fd77a8889c14d5e794ece659eb5373de741"
+    },
+    {
+      "path": "frontend/src/components/ComparisonEvidence.tsx",
+      "bytes": 4554,
+      "sha256": "b5f210d110e66f9c2b58f0a036db324e1ae73f7ca9d8e2c25958d460feb8ce01"
+    },
+    {
+      "path": "frontend/src/components/InteractivePlanetGlobe.tsx",
+      "bytes": 30283,
+      "sha256": "f537ac50f380faecf7ea53ca6e74ba4e134091fee7ce4fe36690d164c68eb29c"
+    },
+    {
+      "path": "frontend/src/components/OriginalUI.tsx",
+      "bytes": 2417,
+      "sha256": "ed370a07e70e791d59c7a794e3f810d8af8e027f6964c5d58a6a23cee508be49"
+    },
+    {
+      "path": "frontend/src/components/ScientificEvidence.tsx",
+      "bytes": 14692,
+      "sha256": "b3395ef5d049986868d08b039fc55984887f64391d86fa6ea77622d653dc3319"
+    },
+    {
+      "path": "frontend/src/components/SourceLibrary.tsx",
+      "bytes": 3947,
+      "sha256": "04bf59e4d8f59338b8082bf2f158061ba78cd1242006ec57e1bcf04adec066f6"
+    },
+    {
+      "path": "frontend/src/components/textPresentation.test.ts",
+      "bytes": 3209,
+      "sha256": "9642ae47f390e221b1b752f321e17d252382382bbb179b029b6429bc9d0c30f1"
+    },
+    {
+      "path": "frontend/src/hooks/useApi.ts",
+      "bytes": 1686,
+      "sha256": "bee6ddcbdb98221c84a8b53fb987e595023d20596b74e8a6b78eec128485e02e"
+    },
+    {
+      "path": "frontend/src/index.css",
+      "bytes": 699,
+      "sha256": "56cc6899ffc7a170081033eb8e5be55dcfb9bd334d7f7fadffe5c86ebf81768b"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "bytes": 220,
+      "sha256": "0841d035eaea39546619092e503383a2682334339d1384137f6f4d04c73eeafa"
+    },
+    {
+      "path": "frontend/src/pages/AboutPage.tsx",
+      "bytes": 1520,
+      "sha256": "9cd043c9917db3d0d94b5bafdf115eb7ee3e171129d86ff931a885220a67f859"
+    },
+    {
+      "path": "frontend/src/pages/HomePage.tsx",
+      "bytes": 4313,
+      "sha256": "451e9797ffc92416c0173d1eb07e9b42859fe59690f7d5b97a9aef991ab5eaeb"
+    },
+    {
+      "path": "frontend/src/pages/TestPlannerPage.tsx",
+      "bytes": 2522,
+      "sha256": "856a217545fae51fc49e9e92d6ad2672db3fd6d86f776bb7b4594cc1cabd4c6f"
+    },
+    {
+      "path": "frontend/src/services/adapters.ts",
+      "bytes": 4818,
+      "sha256": "ded7030b084701db260455afef1fcef7de012db8b343bb05fb274d2eb05c3770"
+    },
+    {
+      "path": "frontend/src/services/api.ts",
+      "bytes": 1679,
+      "sha256": "65fbac255645d6181a6b62b0ad287c987f80ce8cb2ab26223680b0e63ae6a402"
+    },
+    {
+      "path": "frontend/src/services/integration.test.ts",
+      "bytes": 7556,
+      "sha256": "db42b9ec4dcf146d490f3d3b66567b2add071f63851299158c861b084c541203"
+    },
+    {
+      "path": "frontend/src/services/pages.test.ts",
+      "bytes": 1943,
+      "sha256": "731baed5b5a609d5c60b4c4989ca21e7368346d4a525d5e859eee61e65e555de"
+    },
+    {
+      "path": "frontend/src/services/pages.ts",
+      "bytes": 669,
+      "sha256": "2edf13b5f0459b86dd013d97e7e67a463de0468b39399e83b12e3387bbeb0d80"
+    },
+    {
+      "path": "frontend/src/services/presentation.ts",
+      "bytes": 3906,
+      "sha256": "030ce030a756aa5e5ebfd1a3281fc9b120dd2829b40320d8fe0e59b8a12af8b1"
+    },
+    {
+      "path": "frontend/src/types/science.ts",
+      "bytes": 3391,
+      "sha256": "17b440f43f67cfb36c76bd6322823cd3ca3476f0762432380f48c13d65e8b3c6"
+    },
+    {
+      "path": "frontend/src/types/view.ts",
+      "bytes": 705,
+      "sha256": "097718f249f18302249dea8adef97fd3193a32e14e01fdc7b8a2ad591002eac5"
+    },
+    {
+      "path": "frontend/src/utils/globeGeometry.test.ts",
+      "bytes": 4532,
+      "sha256": "f57e57aa5f53253a5273415a069dc5b701abc0c9071a3ab036cd6515937777af"
+    },
+    {
+      "path": "frontend/src/utils/globeGeometry.ts",
+      "bytes": 1308,
+      "sha256": "a781cb44bbefeeefdf937f6647116a0ad15a60ace704a0074a35108bb69696b6"
+    },
+    {
+      "path": "frontend/tailwind.config.cjs",
+      "bytes": 137,
+      "sha256": "1a00cd2448c9637df2ecd07592fa4f4d8bcce860eb307d0c25f0d75f00bd42df"
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "bytes": 456,
+      "sha256": "74c437f3acf6fc9057ee79b53e5b0eda083056075988dedf06b03356e9cd174e"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "bytes": 394,
+      "sha256": "9cdfbe84ea8bc0538abfede2d7a9a278dc67e931a24858e6e40b6e875d050810"
+    },
+    {
+      "path": "original_frontend/frontend.txt",
+      "bytes": 67241,
+      "sha256": "70ec858e8e385613abc210a7b76738311e3a8330c4f1523441c894709b874d96"
+    },
+    {
+      "path": "package.json",
+      "bytes": 320,
+      "sha256": "6f9a7c1cf480498108d53e372f7a981bbf44a375e76210034879065f5d2104f9"
+    },
+    {
+      "path": "plan.md",
+      "bytes": 4906,
+      "sha256": "c0dece97a76cfa4a98633c93fca0b5e910be5e328ea7ba01f0f956c0857bf158"
+    },
+    {
+      "path": "requirements/design_preservation.txt",
+      "bytes": 4036,
+      "sha256": "ac731c3bafcab13ecfeb4ff64cec2578a24a65cb15a4f06229ee3aaf2c127a8c"
+    },
+    {
+      "path": "requirements/original_request.txt",
+      "bytes": 23145,
+      "sha256": "0798d8606050f88049b46c5ded46e62b28d4b23ea19c91c331533a2d3715d0d2"
+    },
+    {
+      "path": "requirements/terratwin_corrections.txt",
+      "bytes": 3246,
+      "sha256": "29f39f44fbb165a40d5e3c43469e264d43f91716a1e59339d243ac07146a7729"
+    },
+    {
+      "path": "screenshots/Earth_corrected.webp",
+      "bytes": 489090,
+      "sha256": "0bcd94fa13cd396a0feb89f25bcd02835e660dec697304fa7b1fa1a4df7156e6"
+    },
+    {
+      "path": "screenshots/Moon_corrected.webp",
+      "bytes": 503912,
+      "sha256": "9a4cc01326b5de3ba39f7e7905f0e32097e45342d7d228b9781093303c0fc129"
+    },
+    {
+      "path": "screenshots/final/About.png",
+      "bytes": 446721,
+      "sha256": "17a07353bce71e5d0e133af17a8529b11a5aac7b144bdad9eaa199cb21bad970"
+    },
+    {
+      "path": "screenshots/final/Compare.webp",
+      "bytes": 439182,
+      "sha256": "a287fa54ce074d8c652194621f064554b76ed03615b3f8c90c90c7c780942dce"
+    },
+    {
+      "path": "screenshots/final/Explore.webp",
+      "bytes": 480784,
+      "sha256": "242e35b2e9eea068f93b9abf14734ff79deb1140a3a2c9b409534a4ed9c3ee70"
+    },
+    {
+      "path": "screenshots/final/Home.webp",
+      "bytes": 395294,
+      "sha256": "ead5b0034a71f85344a83b4594c0624e952ac7a6f02c3054a9e9c9960a0282bb"
+    },
+    {
+      "path": "screenshots/final/Test_Planner.webp",
+      "bytes": 393982,
+      "sha256": "e942d44843a394bf55da6e0f7cbb88d78b7d6e00d8a1aa6a3b029c7064e3109d"
+    },
+    {
+      "path": "scripts/setup.sh",
+      "bytes": 401,
+      "sha256": "d5389893efbeb52f75eb4294a46936e22d307c36797278fbe0e1959123624b5e"
+    },
+    {
+      "path": "scripts/start_backend.sh",
+      "bytes": 216,
+      "sha256": "17920fcd7d7d11d0f89cd56cb4d63e4f063c43ac34be79fae70a1492cc2b42c6"
+    },
+    {
+      "path": "scripts/start_dev.sh",
+      "bytes": 651,
+      "sha256": "b4b46df01084ecea551a7ac9c26722fcab7c3fa80d7ea1381deda67de89ed61d"
+    },
+    {
+      "path": "scripts/start_production.sh",
+      "bytes": 413,
+      "sha256": "56cac4574c42e6c3bc24fda1aee5fff75c0f22f3c535e1d7d4da4483b8b0d400"
+    },
+    {
+      "path": "validation/decorative_assets.json",
+      "bytes": 2259,
+      "sha256": "6db4924b233d7d63de90eb31e2902c36d4602027d45409f84b436218509f5839"
+    },
+    {
+      "path": "validation/final/original_thumbnail_assets.json",
+      "bytes": 1124,
+      "sha256": "8efd3b0264ae8a853846649e9e1e876889063239cb22141a19b124acd35ad158"
+    },
+    {
+      "path": "validation/final_input_byte_preservation.json",
+      "bytes": 26910,
+      "sha256": "848ef10cf41f4a7d55a2a8a2a09437b7fc86bbd4d88d3f350c4ef7a4454b711f"
+    },
+    {
+      "path": "validation/original_upload_hashes.json",
+      "bytes": 480,
+      "sha256": "4fc69c8a9323239909a0bbc53af0a3613c3c3b964050b59bb26ec5297eef5150"
+    },
+    {
+      "path": "validation/text_only/backup_manifest.json",
+      "bytes": 35515,
+      "sha256": "4d8050f147d9ac3e89b6abc57db4c69f4d00be6d7c130f0c17e839e89b1e01d5"
+    },
+    {
+      "path": "validation/text_only/baseline/ScientificEvidence.tsx.txt",
+      "bytes": 14458,
+      "sha256": "83fa3cc839734d06efb9a328ee9c4f9bd1a21a89cde21a8bde56c69a5241bb98"
+    }
+  ]
+}

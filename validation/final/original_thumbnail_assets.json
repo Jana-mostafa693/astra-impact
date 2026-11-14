@@ -1,0 +1,26 @@
+[
+  {
+    "body": "Earth",
+    "source_url": "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&q=80&w=200",
+    "local_path": "/textures/earth_original_thumbnail.jpg",
+    "status": 200,
+    "sha256": "18c7df93ab2d1446bf3f0e5bff3edd39652c0064248d2f449467c9cae48997aa",
+    "meaning": "Original decorative thumbnail, not a site photograph"
+  },
+  {
+    "body": "Moon",
+    "source_url": "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&q=80&w=200",
+    "local_path": "/textures/moon_original_thumbnail.jpg",
+    "status": 200,
+    "sha256": "8634fb3730c21f5b4c4569e09158084c463e926d87a8f6b1bd54109aa28c42f8",
+    "meaning": "Original decorative thumbnail, not a site photograph"
+  },
+  {
+    "body": "Mars",
+    "source_url": "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=200",
+    "local_path": "/textures/mars_original_thumbnail.jpg",
+    "status": 200,
+    "sha256": "ffa325ce93851943963ee065ef8d942ebd2696f336c74ffe6b296700b48799d7",
+    "meaning": "Original decorative thumbnail, not a site photograph"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "required_common_site_fields": [
+    "site_id",
+    "site_name",
+    "body",
+    "coordinates",
+    "site_verification_status",
+    "environmental_measurements",
+    "scientific_quality_flags",
+    "missing_variables",
+    "purpose_specific_analog_evidence"
+  ],
+  "body_coordinate_rules": {
+    "Earth": "WGS84EPSG4326only",
+    "Moon": "PlanetocentriclunarME/JPLDE421,eastpositive;notEarthGeoJSON",
+    "Mars": "PlanetocentricMarsIAU2000sphere,eastpositive;notEarthGeoJSON"
+  },
+  "json_missing_value": null,
+  "measured_model_field": "data_class",
+  "time_series_storage": "website_timeseries/ files; bulkCSVtimeseries/"
+}

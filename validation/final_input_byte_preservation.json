@@ -1,0 +1,627 @@
+{
+  "status": "PASS",
+  "original_frontend_preserved": true,
+  "source_files_checked": 124,
+  "checks": [
+    {
+      "runtime_file": "data/package_manifest.json",
+      "sha256": "b25006c6172c1f6c3955cd9ca80f061fe7b039ff718ee4ed2e0f822174d163bf",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/build_summary.json",
+      "sha256": "7dbb16228cbe44c6717101ebb6e8c609319047393cfc63121c77d65d7133ea60",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/final_validation.json",
+      "sha256": "40333a7519d839acf8be8f534e7834c54e89e3aeb3b95d840e2dda66d98a4a31",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_analog_recommendations.json",
+      "sha256": "e0349474c4c3530170723edd8b4478fa10af2ab301513ef0f758d9727d58cfcb",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_comparisons.json",
+      "sha256": "a700dc6f14aaa70fd64d7e582c8c6ee6b8ac5139b599dbe20fa70b7b99250e14",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_earth_details.json",
+      "sha256": "a09038ea9c38e9d616b688c0d2d979d59be51324a8fb0723f8f244986a3c0348",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_mars_details.json",
+      "sha256": "496a64a625d0568c6c7265a4e20a6f994f1f93351c15b3c29ce31fceee9f1c9f",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_moon_details.json",
+      "sha256": "680211b9e602f738ef9932d14885883c27694b34411404275189a16a094ba2c4",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_schema.json",
+      "sha256": "6ef8ce5566a5c4ee93ea2552381ce5581ae8c353631ded3ef413e1bcfc8b9788",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_json/website_sites.json",
+      "sha256": "7b5e4f8ee5adb993c16451c8fc9741f30cb45db42a283b9329f906c8f0e833f5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_annual_climate.json",
+      "sha256": "17e28f4b6525ddd5ef4e4bd260606eb4bc9da4243b45963780b24bd7817046c1",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_climatology_months.json",
+      "sha256": "567364a908f9f84c5af256c9d55f51fcb38c5a7ee2b85080ca40cee91a8741b3",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_modis_8day.json",
+      "sha256": "857c0c549cc32d5f6fe0e3dc788fb736feeb741e85e876a1f15984ee44cbe249",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_monthly_climate.json",
+      "sha256": "4d8c10b101d67bc0d9b5d66d5998337c47e6d1b0edd8f0b1184e090859589b75",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_power_monthly.json",
+      "sha256": "fa8b4d6a36480da61620af3ce453a1089b493a9f431a0ee24042852204a2623e",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_soil_depth_profiles.json",
+      "sha256": "23a9d5ac2ee7260d0684291dc5dd867dcb22ad3dc74bc689853518933e6dcac3",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ATACAMA_solar_monthly.json",
+      "sha256": "7f560408590c2012446a24b3027b1736af00c32e559348d70ebd81198a6590a4",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_annual_climate.json",
+      "sha256": "7b4f2585844cc105cb6db661e0e3ce55a088ac72b5480336ca8644f7caf94fcb",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_climatology_months.json",
+      "sha256": "25c165af9b142214e9f5dbf9399f31cd5ad8ec5c69aed72b76fc470aa45d5df2",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_modis_8day.json",
+      "sha256": "33995c17d4b06e18d0df96957748eb574bb9602da84fcb66b2273c0d2d7d8750",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_monthly_climate.json",
+      "sha256": "d567f78045fa9a7e72c03e09c0940838aff280b030ba31fbc65891489590c8d5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_power_monthly.json",
+      "sha256": "d5c4b630aef6444a04c9ec1573ef9ac6f37c50d04a22eab391e2f6268dd0fd6c",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_soil_depth_profiles.json",
+      "sha256": "054a412316a5ca6886c651b355803bd8bdad7a676c6f8cd2a356093cd9662f01",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-DRYVALLEYS_solar_monthly.json",
+      "sha256": "b40535a84b88f57ecf5eb1a54b4a2002ed7f50c9f44c725547a43d911629f280",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_annual_climate.json",
+      "sha256": "31365f981b2382ac836041987b27c8e45dfb8ee16ea62841b00e463dd044e788",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_climatology_months.json",
+      "sha256": "87866fc5aa28bb60447c26c4dc970e8c367bd5dc2df0cb8ea9da8acfe6677d0a",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_modis_8day.json",
+      "sha256": "58f322870d30dfeb2f37645196c5a474226dc2edf61fa7bc5c4983d5c5517878",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_monthly_climate.json",
+      "sha256": "f1449cecb0c329f7f49aa747076f0dbebb776ba36a7cea763b069f370fe5ffbd",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_power_monthly.json",
+      "sha256": "d69a18279d2e6a4dfe9d296f49e4f45929c7ece3a2bed1c16fb8f6300a12cba7",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_soil_depth_profiles.json",
+      "sha256": "5904ee0a336924c7050cf6295aa67540d1b999baae4b64203756856509ac3707",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-HAUGHTON_solar_monthly.json",
+      "sha256": "2bf3b4fac81a3924c1d086c734eece69d83c9bdf9e1c609dbbf2f68e715c3b6d",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_annual_climate.json",
+      "sha256": "3eb59d65321493bad7a0a303c96ee5750d117ce6029465221fdf3a3f575bf771",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_climatology_months.json",
+      "sha256": "d23615e39ffa3a566dc430c4eb31e65a492d03cdde202f5fe773c6f528f8e421",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_modis_8day.json",
+      "sha256": "6fe06188ce396045a4720077aa14038230f10a0a3a82994676aef4d522ba2186",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_monthly_climate.json",
+      "sha256": "67abc4abc8c5d20236050b886808c5843341288eacaf6d4957fb40fa3ef520e5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_power_monthly.json",
+      "sha256": "88ea8f22a6fe233051cb448f29d3cf0616448c3e14750fb753cad5ae67702807",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_soil_depth_profiles.json",
+      "sha256": "924bf726ba553ae8109c611097a555fad89115599dbe94f256092e145965f875",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-ICELAND-HIGHLANDS_solar_monthly.json",
+      "sha256": "05da50638a3f8ef7ec9b4f94447c515e8f72b280509af026e75de3153ecc4ecc",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_annual_climate.json",
+      "sha256": "56f375c8514e916866b74739db2ab732ce4f707c657847754391d02539fa6baa",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_climatology_months.json",
+      "sha256": "ee61a4d509d0e2756b5323de64fb355fd3b0d3515c2c21e56f2919f845972541",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_modis_8day.json",
+      "sha256": "b0399043d5bdcb445adc1c4bc18e0b293f456d7046a94a0c143a81640244d188",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_monthly_climate.json",
+      "sha256": "c04496e14932d6d0220faa26db52c87a7fe86cb9c582dbaaa934b3162a193e5e",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_power_monthly.json",
+      "sha256": "3ee0e4cfa9f28da709c15fb8735c2f6912d0ee6e89b6b99f63be0d99479cd33d",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_soil_depth_profiles.json",
+      "sha256": "13756abca9053a855a124ddea410b28159e1ff36c473d80475ec7a3912e27652",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-LONAR_solar_monthly.json",
+      "sha256": "7b2925dca1fabe13d0af9e75a59343e0d35816d661d893ce4c3e4f728e1c82de",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_annual_climate.json",
+      "sha256": "c4edb945060465edaa42fd0198795883eae8b0fcc95788ee83dbfa51502f6f02",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_climatology_months.json",
+      "sha256": "8c86c21c683cbf38f08569eae33a1b0b3b13a6597127acf1d9e813f3e10f5b37",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_modis_8day.json",
+      "sha256": "3936a0fb87f374db0643b89a3f8f65f870cf975decf1e7c6c1539deade5a07d7",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_monthly_climate.json",
+      "sha256": "f91e9da3fe726277473fc2a264db5a2f109765a69430965d3db082438a525ccb",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_power_monthly.json",
+      "sha256": "1ac581d7ce055d70e7710f6252867c66f0dba609ca6499615a856755f09a48e5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_soil_depth_profiles.json",
+      "sha256": "6c47e90f5a5a48a71ef38a27e59726d8765de0c4ee2d5ef1b94790d7c7a6a919",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MANICOUAGAN_solar_monthly.json",
+      "sha256": "47aefcc11645244718441743b78448858ad77f305fc2328c286be803b1dcc1a3",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_annual_climate.json",
+      "sha256": "0b59725265c29943d19334db9120c9cc38ed78bb7ae27ffde9d4c86d7f9e513e",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_climatology_months.json",
+      "sha256": "7fca9ac74cb3cfd1a0ef44c675029e790543b8198f826e9bbac2ce4e9db2d712",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_modis_8day.json",
+      "sha256": "932afbd2d87fdfb626c25c4968e508271de86a723e37e2f1e2a929a73548af4d",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_monthly_climate.json",
+      "sha256": "337a069fb515b4e3db9aa593e9b71650bda8d631c6c13136e0d5d0f6532e84b5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_power_monthly.json",
+      "sha256": "b2e67e28968fbe07550f659eec3f5fb307337c685fec726d3fab752993780b1b",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_soil_depth_profiles.json",
+      "sha256": "b0b70febce8e2923904bcda9ef26e4150ce74269bdf7a83a6a424c452f1195bf",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MAUNAKEA_solar_monthly.json",
+      "sha256": "97cab9f4f77fd6ca6be86c5a84c6df918810b4d80dc9e78348173aa54e1eaff1",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_annual_climate.json",
+      "sha256": "73647d4a181b16848bd6322d129f7185b5710c8acea70f5bcb0c114b2a678f2e",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_climatology_months.json",
+      "sha256": "937263eac102f8ef530675d4c500dbe669f5e7ca396e920d0c1e43c6461f24ae",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_modis_8day.json",
+      "sha256": "18fb1452689e2dc2a063d89872a74cc31b892d2d9ad3d2cf5231b3065f0a9b7f",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_monthly_climate.json",
+      "sha256": "8ca7d8079b84809af7e16409b950477fc95ec76105b1fff0534556d69eb58ef0",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_power_monthly.json",
+      "sha256": "83e7cb9ab7f52518d0bb1e445a3a9b267416e725151ed16b15147ca11b5446ed",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_soil_depth_profiles.json",
+      "sha256": "c169a32e4cf02eb1812a2b975fe639cc2b6d515b6ebe247a9b7fb1158d46b721",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-MOJAVE-AMB_solar_monthly.json",
+      "sha256": "b3aa113a09baa4771e242bce374dbf522dca760f30b2736b1ab85c0e8b328f59",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_annual_climate.json",
+      "sha256": "072157faf116cd5fd58d6714bcec0e3bfff355b803ab52c7cb60bcf9258a0d9a",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_climatology_months.json",
+      "sha256": "bbac765cb9e646083930ab45a972f974b000cbf8398c55984a7c310bbc1b59fb",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_modis_8day.json",
+      "sha256": "b9e8a5f4352fad89afc003685aae7e275918d210a39d04ee8d92c0462d81720f",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_monthly_climate.json",
+      "sha256": "7d2f3d1629c2068bbd8e494fd59b33b323383154902f33aac808a3faab3478b1",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_power_monthly.json",
+      "sha256": "e9a9a16e0e8b3e6bdedb13a301c72abaf0362d4f28dad42b5464c9c8f90091b6",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_soil_depth_profiles.json",
+      "sha256": "374a19dd033a6b5c54f58156caf91ba1ffb922755388b739e2c50b285b946313",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-NAMIB_solar_monthly.json",
+      "sha256": "449b40866e1f16638825096263eac64cb0cf3a30c01135106515e0be87ff13f5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_annual_climate.json",
+      "sha256": "64c92c12198e2659d3e04af16648c4bb31b442dd791558d045cc117361e35e42",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_climatology_months.json",
+      "sha256": "6e7bccd89a7ac3a3242360b3a87066c7af0f0b16309099fd2aa599b572443b61",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_modis_8day.json",
+      "sha256": "bad0f386c770b7dce592a0049d09612dbd52d4196dfd80691d8c35c6b7fcfeaa",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_monthly_climate.json",
+      "sha256": "59e2e154db822782dd7b71f270455e5a42effb60969d275c49acf485cb618924",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_power_monthly.json",
+      "sha256": "cfdafc4cc905345ad91dceea46bbd5d30b8936d06be03c809ed96503ef6662db",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_soil_depth_profiles.json",
+      "sha256": "0664e2c41ea8b04c1c1f8f15a99cb2a77038e8708b04c6a3a6dd5032405677fe",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-PILBARA_solar_monthly.json",
+      "sha256": "f6faccbaa51f3fbca7d89f2760e374044e89e81881aa4264aa98bc28a32598af",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_annual_climate.json",
+      "sha256": "560f73e238babbadfd1e9d009d21dfdb5ba31116fc300a3a748cb838d91b74e0",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_climatology_months.json",
+      "sha256": "a392168a279b8daa77844f94c322ac215df45f0075e52c6a93f908ef03209183",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_modis_8day.json",
+      "sha256": "4c8709874261caf07fe74c4b52ef74fe2c055f00aa6254655122f11c703415f2",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_monthly_climate.json",
+      "sha256": "3f934519d2164d1200dc27e875ed200738ce2b7a9d81e498c5c7a02fc16c7e86",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_power_monthly.json",
+      "sha256": "1d0524aba8e3100b6fa55d1209d43ebf5e70a400c30b5bd70e37f73f3fd9f034",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_soil_depth_profiles.json",
+      "sha256": "e6c4ff50f51709f849a3ce7c2ec7a18456b9f42dc8d27048bac17ce60ad821cc",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-RIES_solar_monthly.json",
+      "sha256": "82d1a1abea767aedd928a8aaff718d45054850434f541500f2fb43fc678427cb",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_annual_climate.json",
+      "sha256": "2f3972494f8ef04ab379eaf0d677ac29017daacde9514b7f79db58d05d48b3b6",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_climatology_months.json",
+      "sha256": "f4b1759161306007522ca0671942e11adb6e0f915f7fedcd7c5856137c0baafe",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_modis_8day.json",
+      "sha256": "b0c159d12b72a1ba2232e36ad0b275369e69992c548ce1d13af991fd6432c86f",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_monthly_climate.json",
+      "sha256": "a66af1010046d21deb2e50c8c25794bc83cc540020a5808b787eb77054b800bf",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_power_monthly.json",
+      "sha256": "25d2bd1857c0c0b19d062082e31ddf86dee1e00fb38065404b8f450866a14534",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_soil_depth_profiles.json",
+      "sha256": "fb9ca9a310e6d8d98a8d5140c2fa04657d9cc94dfe6ef43eaad7041a984bf9c5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-SUDBURY_solar_monthly.json",
+      "sha256": "0bd77c361af053106c3cf25b518556c5a109e3d1e8f16ba887cb1958b4bbf2f3",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_annual_climate.json",
+      "sha256": "f478fbca7d0621b3402f3cc3df62f30acd6c9a187c1b3fdb353c0945701f0aad",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_climatology_months.json",
+      "sha256": "e56f964d4a839fa311059b8af1d504e74ae04ad4182c03cdbdfccc7f7bafd928",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_modis_8day.json",
+      "sha256": "b342acba34a5771bf4d191305299c527fe256b88aedd2d0dff29d858cdb519a5",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_monthly_climate.json",
+      "sha256": "7c4be6f15c58ca643cf11cb69fa216c2b58f57cd44d0d42a73199eeffacdc614",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_power_monthly.json",
+      "sha256": "520b2e7893099cd718d1f3ebbdd0845e44dd69593bc9d28b4f8f12b7a1e4aad7",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_soil_depth_profiles.json",
+      "sha256": "b9a9580d7a9639b48c1df51365573bb8b94c22c37e2e5bd4c3ebbac2306d7b08",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-VREDEFORT_solar_monthly.json",
+      "sha256": "4d2a799867b57eaad1657060bd9d1688985b3d11e02170fd438b8145340b8772",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_annual_climate.json",
+      "sha256": "70536a4fc11e0dc99c950f083c92e7b50c44a1f045082d63eabd8af876825513",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_climatology_months.json",
+      "sha256": "8a0d434f629462c77e98b742cd6d0649fc4baffff03e1b1df9917bbe29a7851c",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_modis_8day.json",
+      "sha256": "381ee2d73e3107271fa3617da3fa4f0fc310eb5d4671e21fe7c46e8eac5b47f9",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_monthly_climate.json",
+      "sha256": "4ad01c3352a1ae2d597659b0f5ca13f63edc48cbb82c6ef08d165dfc803c3823",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_power_monthly.json",
+      "sha256": "90e008b30b80932bb9d809fdaded353d8c2d1afd43661e1b0dc36dd929e3b5f9",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_soil_depth_profiles.json",
+      "sha256": "7e949698dfcd29a6b700425847315a74c5fc447371ec29fc33cb8d316ea96caf",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/EARTH-WOLFE-CREEK_solar_monthly.json",
+      "sha256": "61dd5343e9a83dee285f85aa4f8170c5d3a03a11692098f055e04c9e33edea9e",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/MARS-HELLAS_mcd_seasonal.json",
+      "sha256": "61efb01f586dfe9b99efec418ffe250c5aef27ac84a1db912e1786ee6d94ead1",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/MARS-HELLAS_mcd_seasonal_summary.json",
+      "sha256": "4f6b17b2a7e90d2e02474a562d2e8434145fcfaf16a8a3beb69a941829b46d14",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/MARS-HELLAS_mcd_vertical_and_10m.json",
+      "sha256": "716a77fbb910930f5bb4be58f9bd9a97ab96057da5b3910ad800a975566c3dd2",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/MARS-HELLAS_tes_inertia.json",
+      "sha256": "277512ea1146fbf593ad325f65287dae008ee348eb180ba847dbe7d60ada1e87",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/MOON-MONS-MOUTON_diviner_local_time.json",
+      "sha256": "3db762c730832908e61394d72a7a81ef0d5e313f9506523abf397650ff2b7d66",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/website_timeseries/MOON-ORIENTALE_diviner_local_time.json",
+      "sha256": "fae020b8413b37cbb05f78b71a46defc68fe714ecd9801e33cfa5b9f9038cc98",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/scientific_reports/DATA_COVERAGE_REPORT.md",
+      "sha256": "6e3aef3bb5d97ecb05def2dd8b3edee2bad201ad73453fa0d3664336a0a7129d",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/scientific_reports/FINAL_DATA_QUALITY_REPORT.md",
+      "sha256": "17b6a41cbb264496ddb59d54c8279b76dbc5d22d398c3d67c0630154fa898798",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/scientific_reports/FINAL_SCIENTIFIC_REPORT.md",
+      "sha256": "e16a8b633b61982be22fed9fdb7207540567c4a407996f5de08ecff4d9809005",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/scientific_reports/README.md",
+      "sha256": "77abf3aa5fc5ccd1d673b98b53808f8eef8bd89fde25542a794a3b11a30c81c4",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/scientific_reports/REPRODUCIBILITY_GUIDE.md",
+      "sha256": "5c1d1cfb495d2e4d091cd7afbda7598fe840e9bf2ed2f84636731b85b500a3c6",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/scientific_reports/SCIENTIFIC_LIMITATIONS.md",
+      "sha256": "97643747ce699ee8a5a8a37f4915bd12dfb514f729b378656414675f168b0f64",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/catalogs/planetary_source_catalog.csv",
+      "sha256": "ff656c3d2b2bb79f1539a67f8a4c4eda6cca4766cd4d1b73afbc2e8af57bc27f",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/catalogs/data_dictionary.csv",
+      "sha256": "b049d801c0fbce6bc7a2e46e67db62cf4fe2a72ee323cecf50ec7a0aee026911",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/catalogs/original_crater_profile_scores.csv",
+      "sha256": "11bb5b8184952c1cb755ec6cc902ea280cb51058fa2dbf5c78c49dfe35641a14",
+      "source_byte_identity": "PASS"
+    },
+    {
+      "runtime_file": "data/catalogs/retained_crater_profiles.csv",
+      "sha256": "68fc3b33dd7f8a82d19ca10a1c7b931e177f594cac21936a9911edf2924e8f6d",
+      "source_byte_identity": "PASS"
+    }
+  ]
+}

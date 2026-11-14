@@ -1,0 +1,80 @@
+path,reason
+CHECKSUMS.sha256,Superseded archive manifest/checksums
+DELIVERY_MANIFEST.json,Superseded archive manifest/checksums
+scripts/package_project.py,Historical packaging/reconstruction helper; not required to run or test app
+scripts/package_text_only.py,Historical packaging/reconstruction helper; not required to run or test app
+scripts/reconstruct_frontend.py,Historical packaging/reconstruction helper; not required to run or test app
+scripts/verify_text_only.py,Historical packaging/reconstruction helper; not required to run or test app
+validation/backend_test_results.json,Historical local validation/browser/build logs or intermediate evidence
+validation/backend_test_results.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/README.md,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-40-41_392.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-41-15_433.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-42-07_984.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-42-52_158.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-43-17_190.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-44-41_794.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/exec_result_2026-11-14_02-45-23_996.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/final_terrain_and_sources.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/mars_final_desktop.webp,Historical local validation/browser/build logs or intermediate evidence
+validation/browser/mars_pre_texture_fix.webp,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/backend_tests.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/exec_result_2026-11-14_05-25-11_880.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/exec_result_2026-11-14_05-25-46_360.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/exec_result_2026-11-14_05-26-22_149.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/exec_result_2026-11-14_05-26-50_773.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/exec_result_2026-11-14_05-27-58_839.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/exec_result_2026-11-14_05-29-22_819.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/browser/responsive390.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/build.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/frontend_tests.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/globe_before.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/reference_status.json,Historical local validation/browser/build logs or intermediate evidence
+validation/correction/test_readiness_notes.md,Historical local validation/browser/build logs or intermediate evidence
+validation/correction_selection_review.json,Historical local validation/browser/build logs or intermediate evidence
+validation/correction_selection_review.md,Historical local validation/browser/build logs or intermediate evidence
+validation/dataset_inspection.json,Historical local validation/browser/build logs or intermediate evidence
+validation/final/backend_tests.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/all_sites_and_targets.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/five_page_navigation.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/globe_controls_initial.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/globe_state_commit_recheck.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/harness_notes.md,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/mobile_five_pages.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/planner_loaded.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/browser/production_console_clean.log,"Duplicate archive, bytecode or local log"
+validation/final/external_source_links.json,Historical local validation/browser/build logs or intermediate evidence
+validation/final/forwarded_preview_check.json,Historical local validation/browser/build logs or intermediate evidence
+validation/final/frontend_intermediate.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/frontend_tests.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/production_build.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/final/production_http.json,Historical local validation/browser/build logs or intermediate evidence
+validation/final/review_resolution.md,Historical local validation/browser/build logs or intermediate evidence
+validation/final_backend_review.json,Historical local validation/browser/build logs or intermediate evidence
+validation/final_backend_review.md,Historical local validation/browser/build logs or intermediate evidence
+validation/frontend_build.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/frontend_build_results.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/frontend_preservation.json,Historical local validation/browser/build logs or intermediate evidence
+validation/frontend_test_results.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/frontend_typecheck.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/independent_integration_review.json,Historical local validation/browser/build logs or intermediate evidence
+validation/independent_integration_review.md,Historical local validation/browser/build logs or intermediate evidence
+validation/live_endpoint_checks.json,Historical local validation/browser/build logs or intermediate evidence
+validation/package_verification.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/review_resolution.md,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/atacama_settled_geometry.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/backend_tests.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/broader_label_geometry_rejected.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/candidate_geometry.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/css_preservation.json,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/final_chip_geometry.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/final_navigation.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/frontend_tests.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/label_initial_readiness.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/preservation_summary.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/production_build.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/review_resolution.md,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/skipped_status_geometry.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/text_only_package_verification.json,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/typecheck.txt,Historical local validation/browser/build logs or intermediate evidence
+validation/text_only/unchanged_files.json,Historical local validation/browser/build logs or intermediate evidence

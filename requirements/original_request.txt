@@ -1,0 +1,832 @@
+# NASA SPACE APPS 2026 — FULL-STACK INTEGRATION AND SCIENTIFIC DATA REPLACEMENT
+
+You are a senior full-stack engineer, React/Three.js developer, Python FastAPI backend engineer, geospatial developer, and scientific data integration specialist.
+
+I have uploaded TWO files:
+
+1. `frontend.txt` — my existing React/TypeScript/Three.js planetary website frontend.
+2. `NASA_SpaceApps_Planetary_Analog_MASTER.zip` — my actual processed and validated Earth, Moon, and Mars scientific dataset.
+
+## THE MISSION
+
+Build a complete, working, visually impressive, scientifically accurate full-stack application by integrating my existing frontend with the real data in the uploaded MASTER ZIP.
+
+**Do not merely produce a plan, mockup, explanation, or screenshots. Write the code, connect the backend to the frontend, run the application, test it, and deliver a downloadable complete project.**
+
+The frontend currently contains hardcoded demonstration data. Replace ALL scientific placeholders with values obtained from the uploaded MASTER dataset.
+
+Preserve the visual identity and interaction style of the existing frontend.
+
+The final product must be suitable for a live NASA Space Apps judging demonstration.
+
+---
+
+# PART 1 — INSPECT BOTH UPLOADS
+
+Before coding:
+
+1. Extract the MASTER ZIP.
+2. Verify ZIP integrity.
+3. Inspect all root-level scientific datasets.
+4. Inspect the website JSON schema.
+5. Inspect all 104 `website_timeseries` files.
+6. Read README, scientific methodology, limitations, source catalog, and quality reports.
+7. Inspect `frontend.txt` in full.
+8. Identify all frontend hardcoded scientific values, static matching relationships, similarity percentages, safety ratings, and visual-only scientific layers.
+9. Document the actual mapping between the frontend UI and the available dataset.
+10. Keep all original uploaded files unchanged.
+
+CRITICAL FRONTEND ISSUE:
+
+The supplied `frontend.txt` is approximately 66 KB and terminates in the middle of the comparison-view JSX. It is not a complete standalone React application.
+
+Check whether the rest of the original frontend exists in the project workspace.
+
+If the complete original project exists, preserve it and use it.
+
+If only `frontend.txt` is available, reconstruct the missing component ending, application shell, navigation, state management, configuration, and build files while keeping the existing visual system.
+
+Do not claim that the original frontend compiled successfully before reconstruction.
+
+---
+
+# PART 2 — SCIENTIFIC SOURCE OF TRUTH
+
+Use the uploaded MASTER ZIP as the authoritative source for application scientific content.
+
+The package contains 403 archive files and has the following active scientific scope:
+
+EARTH:
+- 14 sites
+- 3 existing analyzed sites
+- 11 proposed screening sites
+- 1,227,408 hourly Earth climate records
+- 1,680 monthly climate rows
+- 140 annual climate rows
+- Soil, geological, terrain, land-cover, vegetation, and solar data
+- Partial MODIS satellite land-surface temperatures
+
+MOON:
+- MOON-ORIENTALE
+- MOON-MONS-MOUTON
+
+MARS:
+- MARS-HELLAS
+
+COMPARISON:
+- 420 current category-comparison rows
+- 378 archived Phase 4 rows
+- 210 purpose-specific recommendations
+- 210 purpose-evidence records
+- Six preserved crater-profile RMSE results
+
+MARTIAN CLIMATE:
+- MCD 6.2 modeled climate records
+- Seasonal and local-time information
+- Atmospheric profile data
+- Separate thermal-inertia evidence
+
+WEBSITE FILES:
+
+- `website_sites.json`
+- `website_earth_details.json`
+- `website_moon_details.json`
+- `website_mars_details.json`
+- `website_comparisons.json`
+- `website_analog_recommendations.json`
+- `website_schema.json`
+- `website_timeseries/`
+
+Read their actual schemas. Do not assume these are flat arrays.
+
+For example, `website_sites.json` contains a `sites` array, and `website_comparisons.json` contains a `records` array.
+
+Do not treat every nested measurement as a directly comparable number.
+
+---
+
+# PART 3 — REMOVE ALL FAKE FRONTEND SCIENTIFIC DATA
+
+The uploaded frontend defines a hardcoded `PLANET_DATA` object containing demo site data.
+
+Replace its scientific content entirely.
+
+The current frontend contains example sites such as:
+
+MARS:
+- Jezero
+- Arcadia Planitia
+- Elysium Planitia
+- Gale
+- Valles Marineris
+
+MOON:
+- Shackleton Connecting Ridge
+- Mare Tranquillitatis
+- Malapert Massif
+- Aristarchus Plateau
+- Tycho
+
+EARTH:
+- Atacama
+- Meteor Crater
+- Sahara
+- Lanzarote
+- McMurdo
+- Other demonstration locations
+
+These frontend entries are not equivalent to the scientifically processed sites in the uploaded MASTER dataset.
+
+Remove demo-only sites from the active scientific map unless their exact verified site IDs occur in the uploaded data.
+
+Do not invent measurements or add a site just to make the visual interface look populated.
+
+Use the following exact active scientific site IDs.
+
+EARTH:
+- EARTH-VREDEFORT
+- EARTH-SUDBURY
+- EARTH-MANICOUAGAN
+- EARTH-ATACAMA
+- EARTH-NAMIB
+- EARTH-DRYVALLEYS
+- EARTH-HAUGHTON
+- EARTH-ICELAND-HIGHLANDS
+- EARTH-MOJAVE-AMB
+- EARTH-MAUNAKEA
+- EARTH-RIES
+- EARTH-LONAR
+- EARTH-WOLFE-CREEK
+- EARTH-PILBARA
+
+MOON:
+- MOON-ORIENTALE
+- MOON-MONS-MOUTON
+
+MARS:
+- MARS-HELLAS
+
+Use `site_id` as the stable primary identifier everywhere.
+
+Do not attempt to join datasets using display names.
+
+Remove or replace all unsupported fields such as:
+
+- `similarityScores.overall`
+- `similarityScores.landingSafety`
+- `confidence: 98`
+- `Optimal Safe Zone`
+- `Prime Earth Analog` used as a verified scientific safety classification
+- Hardcoded temperature ranges
+- Hardcoded elevation and slope
+- Hardcoded atmospheric pressure
+- Unsupported mineral compositions
+- Fixed matchingSiteId relationships
+- Fake "94% Match" labels
+
+Do not create new arbitrary match percentages.
+
+Do not replace missing numbers with zero.
+
+Use scientific-quality, evidence-tier, coverage-status, and verification-status indicators instead.
+
+Preserve only non-scientific presentation properties such as colors, textures, transitions, and visual appearance when appropriate.
+
+---
+
+# PART 4 — BACKEND IMPLEMENTATION
+
+Preferred backend: Python 3 with FastAPI and Pydantic.
+
+Use the actual website-ready JSON files as the primary read-only data source.
+
+A database is optional, not mandatory. Do not introduce PostgreSQL or another external service unless it materially improves the application and is fully configured.
+
+For this hackathon MVP, a reliable file-backed FastAPI application is preferable to an unfinished complex database infrastructure.
+
+Implement:
+
+- Data loading and schema validation
+- Clear service and repository layers
+- Stable site-ID lookup
+- Body-specific coordinate handling
+- Pagination for large result sets
+- Filtering and sorting
+- Source metadata retrieval
+- Consistent JSON responses
+- CORS configured for the frontend origin
+- Error handling
+- API documentation through OpenAPI
+- Health and readiness checks
+- No hardcoded scientific example responses
+
+Use safe server-side file resolution for time series. Never permit arbitrary relative-path traversal from an API parameter.
+
+Do not serve the entire 1.2-million-row hourly dataset in a single browser request.
+
+Use precomputed monthly and annual series by default.
+
+Provide a paginated, filtered endpoint for hourly data only if required and feasible.
+
+## REQUIRED API ENDPOINTS
+
+Implement these routes or equivalent documented routes:
+
+GET /api/health
+
+GET /api/summary
+
+GET /api/worlds
+
+GET /api/sites
+
+GET /api/sites?body=Earth
+
+GET /api/sites?body=Moon
+
+GET /api/sites?body=Mars
+
+GET /api/sites/{site_id}
+
+GET /api/sites/{site_id}/measurements
+
+GET /api/sites/{site_id}/quality
+
+GET /api/sites/{site_id}/timeseries
+
+GET /api/sites/{site_id}/timeseries/{series_type}
+
+GET /api/comparisons
+
+GET /api/comparisons?planetary_site_id=MARS-HELLAS
+
+GET /api/comparisons?category=Terrain%20morphology
+
+GET /api/recommendations
+
+GET /api/recommendations?planetary_site_id=MOON-ORIENTALE
+
+GET /api/recommendations?research_purpose=Impact-crater%20morphology
+
+GET /api/sources
+
+GET /api/coverage
+
+GET /api/limitations
+
+GET /api/earth/geojson
+
+GET /api/planetary-regions?body=Moon
+
+GET /api/planetary-regions?body=Mars
+
+API responses must use the real data in the uploaded files.
+
+Implement useful query filters where supported:
+- Body
+- Site status
+- Research purpose
+- Comparison category
+- Source
+- Data class
+- Quality status
+- Time range
+- Available environmental variables
+
+Only expose scientifically meaningful filters supported by actual data.
+
+---
+
+# PART 5 — REACT FRONTEND INTEGRATION
+
+Use the existing React + TypeScript + Three.js frontend as the visual foundation.
+
+Preferred frontend environment:
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Three.js
+- Lucide icons
+- An appropriate chart library, such as Recharts
+
+Preserve:
+- Dark sci-fi visual identity
+- Cyan, orange, and lunar gray themes
+- 3D rotating planets
+- Zoom and drag controls
+- Orbit effects
+- Glowing map pins
+- Glassmorphism panels
+- Planet selection
+- Site selection
+- Comparison layout
+- Responsive behavior
+- Smooth animations
+
+Reconstruct any missing application-shell code because the uploaded frontend text ends before the full application is complete.
+
+Create an API client and typed data adapters.
+
+Do not keep the original scientific demo data as a fallback.
+
+Every scientific UI field must come from the API and trace back to the uploaded MASTER dataset.
+
+Use loading states, error states, retry controls, and missing-data displays.
+
+Show "Data unavailable" when a measurement is missing.
+
+Never silently replace a failed API request with fictional values.
+
+---
+
+# PART 6 — 3D GLOBE AND COORDINATES
+
+Build a functioning 3D planetary explorer.
+
+EARTH:
+Display all 14 verified registry points from the dataset.
+
+MOON:
+Display the two actual lunar targets.
+
+MARS:
+Display Hellas Basin.
+
+Use each site's true coordinates from the scientific website JSON.
+
+The supplied data contains body-specific coordinate reference metadata.
+
+Respect that metadata.
+
+Earth coordinates use WGS84/EPSG:4326.
+
+Lunar and Martian coordinates must not be treated as Earth WGS84 coordinates.
+
+Planet-specific longitude conventions must be converted correctly for texture placement when necessary.
+
+Preserve the existing 3D sphere interaction, including:
+- Drag to rotate
+- Click a pin to select
+- Focus camera on selected pin
+- Zoom
+- Auto-rotation toggle
+- Planet switching
+- Optional grid lines
+
+Fix stale React state, incorrect dependencies, resource cleanup, and any Three.js rendering problems found in the supplied source.
+
+Keep pin positions synchronized with the correct planet and real site list.
+
+When switching planets, update the texture, selected site, pins, site details and scientific filters consistently.
+
+Do not display a planet's sites on another planet.
+
+Use suitable publicly reusable planetary textures with attribution where licensing permits.
+
+Decorative imagery may remain as presentation, but must never be misrepresented as a measured scientific map.
+
+---
+
+# PART 7 — SCIENTIFIC OVERLAYS
+
+The original frontend contains thermal, elevation, and safety overlays that are generated using generic canvas gradients, waves, or static marker colors.
+
+These are illustrative effects, not geospatial measurements.
+
+Replace misleading overlays as follows:
+
+THERMAL:
+Use actual numerical temperature profiles and sampled/site data.
+
+Display charts and sampled-point values.
+
+Only render a spatial thermal heatmap when an actual georeferenced spatial thermal raster covering that area exists.
+
+Otherwise, disable the spatial heatmap and show:
+"Spatial thermal heatmap unavailable — site-level measurements and profiles shown instead."
+
+ELEVATION:
+Use validated elevation and terrain measurements from the MASTER dataset.
+
+A terrain profile, point overlay or supported local raster is acceptable.
+
+Do not display artistic sine-wave contour lines as scientific contours.
+
+SAFETY:
+Do not label locations as safe landing zones.
+
+The MASTER dataset does not establish full engineering landing safety.
+
+Replace the safety overlay with:
+"Analog Evidence / Research Suitability"
+
+Use only the documented research-purpose evidence and associated limitations.
+
+Visually differentiate analyzed versus proposed Earth screening sites.
+
+Create a clear legend explaining what marker colors mean.
+
+Do not imply that color represents mission safety or a probability of successful landing.
+
+---
+
+# PART 8 — SITE DETAIL PANELS
+
+When a user clicks a site, display a beautiful, interactive detail panel containing real available measurements.
+
+FOR EARTH:
+- Site name
+- Coordinates
+- Existing analyzed versus proposed status
+- Air temperature summary
+- Rainfall
+- Humidity
+- Wind
+- Atmospheric pressure
+- Solar radiation
+- Elevation
+- Slope
+- Roughness/ruggedness
+- Soil sand/silt/clay, where available
+- Soil pH
+- Soil depth metadata
+- Geological map unit
+- Land-cover class
+- NDVI, with quality flags
+- MODIS surface temperature, where available
+- Source references
+- Data quality and missing variables
+
+FOR MOON:
+- Lunar site name
+- Coordinates and reference convention
+- Elevation and slope
+- Diviner brightness-temperature profiles
+- Geological and mineralogical evidence
+- PSR model status where available
+- Hydrogen evidence with appropriate qualifications
+- Site coordinate/boundary limitations
+- Missing regolith and accessible-ice evidence
+
+FOR MARS:
+- Hellas Basin
+- Elevation
+- Slope/ruggedness
+- TES thermal inertia
+- MCD 6.2 modeled surface temperatures
+- Modeled atmospheric pressure
+- Seasonal information using solar longitude Ls
+- Local-time variation
+- Atmospheric vertical profiles
+- Model source and scenario
+- Mineral/regolith limitations
+- Missing direct thermal observation notes
+
+Always show units and distinguish modeled from observed values.
+
+---
+
+# PART 9 — SCIENTIFIC CHARTS
+
+Build interactive charts using the real `website_timeseries` files.
+
+The dataset contains 104 chart-series JSON files.
+
+Earth supported series include:
+- Monthly climate
+- Annual climate
+- Monthly climatology
+- NASA POWER monthly
+- MODIS 8-day surface temperature
+- Monthly solar
+- Soil depth profiles
+
+Moon supported series include:
+- Diviner local-time thermal profiles for Orientale
+- Diviner local-time thermal profiles for Mons Mouton
+
+Mars supported series include:
+- MCD seasonal climate
+- MCD seasonal summary
+- MCD vertical atmospheric profiles
+- TES thermal inertia
+
+Parse each series file according to its actual structure.
+
+Do not assume all series share the same record schema.
+
+Preserve:
+- Units
+- Time axis definition
+- Instrument/model type
+- Source
+- Quality flags
+- Missing records
+- Spatial context
+
+For Mars:
+Solar longitude Ls is not an Earth calendar date.
+
+For Moon:
+Diviner brightness temperature must not be labeled direct kinetic temperature.
+
+For Earth:
+Air temperature must remain separate from MODIS land-surface temperature.
+
+Implement hover tooltips, legends, variable controls, and chart-specific data-source information.
+
+Avoid misleading interpolation across missing satellite observations.
+
+---
+
+# PART 10 — ANALOG FINDER AND COMPARISON ENGINE
+
+Implement an interactive "Find Earth Analog" experience based entirely on the existing scientific evidence.
+
+USER FLOW:
+
+1. Choose Mars or Moon.
+2. Select a supported planetary target.
+3. Choose a research purpose.
+4. Display matching Earth candidates from the dataset.
+5. Show documented rank where one actually exists.
+6. Show scientific reason, evidence tier, and limitations.
+7. Allow opening the Earth site details.
+8. Allow comparing the Earth and planetary target side by side.
+
+Use:
+- website_comparisons.json
+- website_analog_recommendations.json
+- Original preserved crater-profile results
+
+Do not calculate arbitrary overall similarity percentages.
+
+The 210 recommendation records are not necessarily 210 unique pairs or 210 calibrated rankings.
+
+Do not blindly rank null, qualitative, or incomparable data as numeric scores.
+
+If a documented RMSE exists, display it with the correct explanation:
+
+"Normalized crater-profile RMSE — lower values indicate closer profile shapes within this specific experiment."
+
+Never convert RMSE directly into a similarity percentage.
+
+For other scientific categories, display evidence tiers and source-backed qualitative comparisons.
+
+Ensure every recommendation is linked to valid active site IDs.
+
+Handle selections originating from Earth sites without automatically inventing a planetary match.
+
+The compare view must support valid user-selected pairs and display unavailable comparison evidence clearly.
+
+---
+
+# PART 11 — SCIENTIFIC TRANSPARENCY
+
+Add a clear "Scientific Evidence" section.
+
+Display:
+- Dataset source
+- Product name and version
+- Measured / modeled / derived / interpreted status
+- Spatial resolution when present
+- Temporal coverage
+- Quality flags
+- Limitations
+- Original official source URL
+
+Use:
+- planetary_source_catalog.csv
+- Scientific reports
+- Data coverage report
+- Scientific limitations register
+- Website JSON provenance fields
+
+Highlight:
+- 11 Earth screening sites remain proposed.
+- Mons Mouton reference point is not verified inside a candidate landing polygon.
+- No selected lunar target is a confirmed permanent base.
+- No full landing-safety analysis exists.
+- Mars MCD is modeled climate, not direct observations.
+- Lunar thermal data contain coarse brightness-temperature observations.
+- Partial MODIS coverage must be flagged.
+- Some SoilGrids and NDVI values have quality warnings.
+- Accessible water ice at exact target locations is unconfirmed.
+- Earth analogs represent selected environmental characteristics, not complete reproduction of another planetary environment.
+
+The visual interface must never hide these distinctions behind decorative percentages or badges.
+
+---
+
+# PART 12 — DESIGN QUALITY
+
+The finished website must feel like a polished interactive planetary exploration platform, not a generic dashboard.
+
+Maintain the existing cinematic visual approach.
+
+Build or complete:
+- Landing / introduction view
+- Earth, Moon, Mars explorer
+- Interactive 3D globes
+- Site information panels
+- Scientific dashboards
+- Earth Analog Finder
+- Side-by-side comparison
+- Climate and terrain charts
+- Research-purpose selection
+- Dataset source information
+- Scientific limitations
+- A concise presentation/demo flow for judges
+
+Make navigation intuitive.
+
+Ensure desktop and mobile responsiveness.
+
+Use tasteful transitions and efficient Three.js rendering.
+
+Optimize texture loading, chart rendering, and API requests.
+
+Do not spend the project budget creating unnecessary videos, animations, or invented scientific maps.
+
+---
+
+# PART 13 — RELIABILITY AND TESTING
+
+This is a delivery task, not a design-only task.
+
+Run the backend and frontend.
+
+Test:
+1. Python dependency installation.
+2. Backend startup.
+3. Frontend dependency installation.
+4. TypeScript compilation.
+5. Production frontend build.
+6. API connectivity.
+7. CORS.
+8. All active site IDs.
+9. Correct 14/2/1 site distribution.
+10. All 420 current comparison records.
+11. All 210 recommendation rows.
+12. Correct chart-series selection.
+13. Correct planetary coordinates.
+14. Null-value handling.
+15. Source attribution.
+16. React site switching.
+17. Globe pin selection.
+18. Comparison pair selection.
+19. Filtering and sorting.
+20. No mock science values remaining.
+21. Scientific safety/similarity claim checks.
+22. Responsive layouts.
+23. Basic performance.
+24. No leaking local file paths or credentials.
+
+Implement automated tests for API responses and scientific guardrails.
+
+Provide an integration test that checks:
+
+- Every displayed active site exists in `website_sites.json`.
+- Every displayed numerical value has a source in the actual dataset.
+- Every chart references an existing series.
+- Every recommendation references valid active sites.
+- Missing values are never silently converted to zero.
+- No unsupported overall match percentage is displayed.
+
+Do not claim a test passed unless it was executed successfully.
+
+If a test fails, fix the problem and rerun it.
+
+---
+
+# PART 14 — PROJECT STRUCTURE
+
+Deliver a maintainable full-stack project with a structure similar to:
+
+planetary-analog-app/
+  frontend/
+    src/
+      components/
+      pages/
+      services/
+      hooks/
+      types/
+      charts/
+      utils/
+    public/
+    package.json
+    vite.config.ts
+  backend/
+    app/
+      main.py
+      routers/
+      services/
+      models/
+      repositories/
+    tests/
+    requirements.txt
+  data/
+    website_json/
+    website_timeseries/
+    scientific_reports/
+  scripts/
+  README.md
+  .env.example
+
+You may adapt the structure if there is a better technical reason.
+
+Do not copy huge raw datasets into the frontend public folder.
+
+Keep scientific source data and backend logic outside the public frontend assets.
+
+Use environment variables for frontend API base URL.
+
+Include local-development and deployment instructions.
+
+---
+
+# PART 15 — DELIVERY REQUIREMENTS
+
+You must produce a WORKING PROJECT, not just a report.
+
+Final downloadable ZIP:
+
+`NASA_SpaceApps_FullStack_Integrated_Website.zip`
+
+It must contain:
+- Complete React frontend
+- Working FastAPI backend
+- Scientific-data integration
+- Actual website-ready data
+- All relevant chart series
+- API routes
+- TypeScript models and adapters
+- Tests
+- Documentation
+- Start scripts
+- Deployment instructions
+
+Also create:
+
+- INTEGRATION_REPORT.md
+- FRONTEND_DATA_REPLACEMENT_AUDIT.md
+- API_DOCUMENTATION.md
+- SCIENTIFIC_DATA_MAPPING.md
+- TEST_RESULTS.md
+- KNOWN_LIMITATIONS.md
+
+Explain exactly:
+1. What was removed from the original frontend.
+2. What was preserved visually.
+3. Which dataset powers each screen.
+4. Which API endpoint supplies each component.
+5. Which features are fully functional.
+6. Which features have scientifically limited coverage.
+7. Which build and integration tests passed.
+8. How to start the website locally.
+9. How to deploy it.
+
+Provide a running preview URL only if an actual preview server is available and verified.
+
+Do not invent deployment or preview URLs.
+
+---
+
+# PART 16 — EXECUTION PRIORITY AND CREDIT CONTROL
+
+We have limited Manus credits and an urgent NASA Space Apps submission deadline.
+
+Execute in this order:
+
+PRIORITY 1:
+Build a complete compilable frontend project from the provided source and implement the file-backed FastAPI backend.
+
+PRIORITY 2:
+Replace ALL hardcoded scientific data and connect the 17 real active sites.
+
+PRIORITY 3:
+Make the 3D planet explorer, site panels, and comparison flow work with real API responses.
+
+PRIORITY 4:
+Integrate the existing chart-series files and Analog Finder.
+
+PRIORITY 5:
+Scientific provenance, quality flags, testing, and final packaging.
+
+PRIORITY 6:
+Optional polish only after the working application is complete.
+
+Do not start new NASA downloads.
+
+Do not regenerate scientific datasets.
+
+Do not create fictional data to fill UI gaps.
+
+Do not waste time inventing a new design system when the current frontend already provides a strong visual foundation.
+
+Do not stop after outlining an architecture.
+
+Write files, run code, verify functionality, fix errors, and deliver the completed integrated application.
+
+BEGIN EXECUTION NOW.

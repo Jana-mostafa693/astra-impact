@@ -1,0 +1,12 @@
+{
+  "name": "nasa-spaceapps-planetary-integration",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.18.0",
+  "scripts": {
+    "dev": "bash scripts/start_dev.sh",
+    "build": "pnpm --dir frontend build",
+    "test": "pnpm --dir frontend test",
+    "start": "bash scripts/start_production.sh"
+  }
+}

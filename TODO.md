@@ -1,0 +1,48 @@
+# Full-stack integration outcomes
+
+- [x] Actual frontend access and dataset inspection: read original67241bytefrontend in full; verify403-memberMASTERZIP,402checksums,all104series androotdatasets; retainuploadsunchanged; locatecompleteproject(onlytruncatedsourceprovided).
+- [x] Original design preserved: do not redesign/replacefrontend; keepdarkspacecolors/gradients/fonts/glass/cards/borders/glows/header/panels/orbits/450410320globeresponsivepositions,animations/hover/transitions. PreserveoriginalThree.jsdrag/touch/autorotation/zoom/focus/pins/planetview-switch/controlbehavior andspeeds. ReconstructonlymissingtechnicalJSX/shell;documentunrecoverableoriginalshellbehavior. Beforeaftervalidationcannotclaimoriginaltruncatedfrontendcompiled.
+- [x] Real-only data integration:17activeexactsiteIDs,14Earth(3analyzed11proposed),2MoonOrientaleMouton,1Hellas. StableIDsnotnames. Removedemo-onlysites/unsupportedconfidence/safety/overallpercentage/fixedmatch/chemistry;nullsnotzero;Dataunavailableinexistinglocation;loading/errors/retry/APIenv;typedadapters. Everydisplayednumericfieldtracestomaster/provenance.
+- [x] File-backedFastAPI:models/repositories/services/routers,JSONvalidation,health/readiness/OpenAPI,CORSrestrictedconfiguredorigins,consistentresponses/errors,paginate/filter/sortsites/measurements/comparisons/recs/sources/series,summary/worlds/quality/coverage/limitations/EarthGeoJSON/MoonMarsregions. Whitelistseriesnopathtraversal;noserverpaths/credentialsleak;monthlyannualdefaultno1.2Mrowbrowserresponse;noexternaldatabase.
+- [x] Coordinate/globeguards:EarthonlyWGS84;MoonMarsbodyreferenceeastpositiveconventions;correctsitepins/worldtexture/selection/panelssynchronizedswitch;keeporiginalglobeandtimings;fixdemonstratedstaleReactrefs/cleanup/shaderbugs;resourcesdisposed;licensedtexturesattributiondecorativenotscientific. ThermalsiteprofilesNOTunavailableheatmap;noartisticcontours;SafetylabelreplacedAnalogEvidenceResearchSuitability;statuslegendneverlandingprobability.
+- [x] Sitepanelsandcharts:allavailableEarthairrainRHWINDpressureSOLARterrainsoilPHdepthmapunitslandcoverNDVIMODIS/QAsources. MoonDivinerbrightness/terrain/geology/regolithHPSRlimits. HellasMOLA/TES/MCD6.2surfacetemperaturepressureLs/localtime/35heightone-seasonprofiles/scenario/missingmineralphysicalregolith.104schema-correctchartsvariablecontrols/tooltip/legend/sourceunits/context/nullgapshonored;Moonbrightnessnotkinetic,EarthairnotLST,MarsLsnotcalendardate.
+- [x] AnalogFinderandcompare:chooseplanet/supportedtarget/purpose,actualEarthrecommendationswithrankwhereexists/tier/reason/limits/openEarthdetails/compareuserchosenpair;210recsnotprobabilities;420categories/378archived;6exactRMSElowerbetterexperimentnotpercentage;Earthselectiondoesnotinventmatch;unsupportedcomparisonclearlyunavailable.
+- [x] ScientificEvidence:source/productversion/class/resolution/time/flags/limits/officialURL,11proposed/Moutonpolygonunverified/noMoonbase/nofullsafety/MCDmodeled/Divinercoarse/MODISpartial/soilNDVIwarnings/iceunconfirmed visible;nooverallprobabilityorresourceclaim.
+- [x] Executedreliabilityvalidation:backenddependency/start/API/OpenAPI/CORS/17IDs/counts/420rows/210recs/104series/filters/nulls/sources/nopathleaks;frontendinstall/TSbuild/prodbuild/APIconnectivity/pinselect/worldswitch/pairs/mobile/performance/scientificguardrails. Automatedtestsrealinputs,missingnotzero,nofakematch. Reportonlyexecutedpasses;fixfailures. Independentread-onlyimplementationreview.
+- [x] Delivery:completeNASA_SpaceApps_FullStack_Integrated_Website.zipwithReact/FastAPIactualdataseries/tests/start/env/deploy/docs. INTEGRATION_REPORT.md,FRONTEND_DATA_REPLACEMENT_AUDIT.md,API_DOCUMENTATION.md,SCIENTIFIC_DATA_MAPPING.md,TEST_RESULTS.md,KNOWN_LIMITATIONS.md. Clearwhatpreserved/removed/missingreconstructed/data-endpointmapping/fullyfunctionalvsscientificallylimited;originaluploadsunchanged;noinventedpreview/publishURLs;noNASAacquisition/datasetregeneration/newdesign/videos.
+
+## Explicitly limited/unexecuted
+
+Original unsuppliedshellpixelidentity/beforebaselinecannotbeverified. No fullscienceheatmap/safetyprobabilityexists. Physicalmobilehardware/crossbrowser/sustained60fpsnotcertified. Dockerimage/publicdeploymentnotexecuted;preparedonly. SeeKNOWN_LIMITATIONS.mdandTEST_RESULTS.md.
+
+# TerraTwin correction request — 2026-11-14
+
+- [x] Verify Earth/Mars/Moon switching; selected-body pins only; every target/site/marker loads matching real backend data; right-side panel, comparisons, research recommendation cards and charts synchronize with region changes. No wrong-body or wrong-site records.
+- [x] Earth retains blue oceans, green/brown land, white clouds, realistic lighting and blue atmospheric glow against dark space; never retains Mars orange texture/tint. Overlay actions cannot replace Earth's appearance with an invented scientific map.
+- [x] Keep the supplied original glowing red/green/yellow marker artwork; positions are true site coordinates, rotation-attached and focus/select correctly. Color labels remain scientific evidence categories, not safety probabilities.
+- [x] Preserve original drag, zoom, spin, focus and globe controls, card geometry and page structure. No redesign or new visual reference assets.
+- [ ] Open and compare ONLY the user's actual TerraTwin design screenshots once available; verify Earth, markers, right panel, recommendation cards, layout and dark-blue glow. BLOCKED: no design images found in upload folder or original frontend ZIP; requested via deferred clarification. Do not substitute prior app screenshots as user references or claim exact image match.
+- [x] Deliver the corrected working integration, real scientific data unchanged, updated tests/ZIP and screenshots of actual corrected app. Clearly distinguish executed checks from blocked reference-image comparison.
+
+# Final TerraTwin five-page quality check
+
+- [x] All five required pages Home, Explore, Compare, Test Planner and About load by navigation/direct links; Back/Forward work. Complete only missing required page wrappers in the established design, without unnecessary features.
+- [ ] Original reference screenshots compared as closely as possible; preserve exact supplied visual/interaction style. BLOCKED until the user's reference images are available; no invented exact-match claim.
+- [x] Earth realistic blue oceans/green-brown land/white clouds/blue-cyan glow, never stale orange Mars; red/green/yellow original glowing markers at actual MASTER coordinates with an explicit evidence-status legend, no similarity percentages.
+- [x] Globe drag/touch/spin/zoom/tilt/grid/buttons/animations/planet switching/navigation and site/region/comparison transitions work; selected site IDs, body, panel, chart and recommendation evidence stay synchronized.
+- [x] Every measurement/chart/comparison/recommendation comes from the actual MASTER through the read-only backend; original science remains byte-identical, nulls remain unavailable. No invented scores, fake landing safety, accessible-ice certification or broken internal links.
+- [x] Test Planner uses actual research-analog recommendations and clearly marks operational permissions/access/hazards/equipment/support/site validation as UNVERIFIED—not an operational approval or engineering feasibility assessment.
+- [x] Desktop/mobile browser checks have no application console errors; external assets/links checked with access limitations stated honestly; no physical-device/cross-browser/performance certification invented.
+- [ ] Frontend/backend checked in actual production serving and authorized deployed environment, not merely local Vite. Private deployment authorization pending; never publish without its answer or claim hosted pass before verification.
+- [x] Automated backend/frontend tests, TypeScript check, production build and real browser interaction tests rerun after final code changes; confirmed errors fixed and test results updated.
+- [x] Deliver final full-stack ZIP, all-five-page screenshots, verified working Preview (and hosted URL only after confirmed deployment), updated results, clear run/deploy instructions and honest remaining limitations.
+
+# Strict text-presentation-only change — 2026-11-14
+
+- [x] Preserve and verify the current working-version backup BEFORE any source edits. Include all source, scientific runtime files, textures, production build and documentation; exclude only caches/Git/private env/redundant imports.
+- [x] Improve existing quality-flag text, raw field labels and UNVERIFIED/MISSING explanations only inside current components, preserving meanings, values, units, IDs and data classes.
+- [x] Keep all five pages, JSX structure, layouts/dimensions/positions, class/style strings, colors/fonts/spacing/shadows/glows, icons/buttons, globe/textures/markers, motion/controls, event handlers/state and frontend/backend integration unchanged. No sections/pages/features/animations or scientific/backend changes.
+- [x] Compare before/after component geometry and presentation at desktop/mobile; skip every candidate that changes dimensions, wrapping or behavior. Explicitly report skipped improvements rather than adapting the design.
+- [x] Run existing tests/build and verify unchanged data/backend/assets/control source hashes. Deliver an accurate text-only change report and rollback backup; do not publish without authorization.
+
+Retained only Missing variables chip-label formatting. QA/status/source-coverage/explanation and broader measurement-title formatting were skipped/reverted because their unchanged geometry could not be consistently verified. No design adaptation was made. See TEXT_PRESENTATION_REPORT.md.

@@ -1,0 +1,14 @@
+.git
+frontend/node_modules
+frontend/dist
+__pycache__
+.pytest_cache
+.venv
+imports
+validation
+original_frontend
+requirements
+*.zip
+.env
+.env.*
+!.env.example

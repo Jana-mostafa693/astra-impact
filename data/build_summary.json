@@ -1,0 +1,62 @@
+{
+  "site_counts": {
+    "Earth": 14,
+    "Moon": 2,
+    "Mars": 1
+  },
+  "earth_status_counts": {
+    "EXISTING_ANALYZED": 3,
+    "PROPOSED_SCREENING": 11
+  },
+  "comparison_rows": 420,
+  "legacy_comparison_rows": 378,
+  "purpose_rows": 210,
+  "evidence_rows": 210,
+  "source_catalog_rows": 39,
+  "active_source_ids": [
+    "EARTH_ERA5_LAND_OPEN_METEO",
+    "EARTH_ERA5_OPEN_METEO",
+    "EARTH_POWER_MONTHLY",
+    "EARTH_MODIS_ORNL",
+    "EARTH_SOILGRIDS",
+    "EARTH_WORLDCOVER",
+    "EARTH_NDVI",
+    "EARTH_COPDEM",
+    "EARTH_GEOLOGY",
+    "MOON_LOLA_GLOBAL",
+    "MOON_LOLA_POLAR",
+    "MOON_DIVINER",
+    "MOON_LP_FEO",
+    "MOON_LP_TI",
+    "MOON_LP_H",
+    "MARS_MOLA",
+    "MARS_TES_TI",
+    "MARS_MCD_62",
+    "MARS_TES_MINERAL",
+    "REGIONAL_GEOLOGICAL_CONTEXT",
+    "RETAINED_CRATER_PROFILES"
+  ],
+  "site_level_joins": "ONE_TO_ONE_STABLE_ID",
+  "all_series_kept_separate": true,
+  "phase5_acquisition": "NONE",
+  "series_json_files": 104,
+  "master_site_ids": [
+    "EARTH-VREDEFORT",
+    "EARTH-SUDBURY",
+    "EARTH-MANICOUAGAN",
+    "EARTH-ATACAMA",
+    "EARTH-NAMIB",
+    "EARTH-DRYVALLEYS",
+    "EARTH-HAUGHTON",
+    "EARTH-ICELAND-HIGHLANDS",
+    "EARTH-MOJAVE-AMB",
+    "EARTH-MAUNAKEA",
+    "EARTH-RIES",
+    "EARTH-LONAR",
+    "EARTH-WOLFE-CREEK",
+    "EARTH-PILBARA",
+    "MOON-ORIENTALE",
+    "MOON-MONS-MOUTON",
+    "MARS-HELLAS"
+  ]
+}

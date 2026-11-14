@@ -1,0 +1,50 @@
+[
+  {
+    "filename": "earth_atmos_2048.jpg",
+    "source_url": "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg",
+    "bytes": 512606,
+    "sha256": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d",
+    "attribution": "Existing original presentation asset; Three.js example assets/NASA imagery provenance retained",
+    "scientific_overlay": false
+  },
+  {
+    "filename": "earth_normal_2048.jpg",
+    "source_url": "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_normal_2048.jpg",
+    "bytes": 336774,
+    "sha256": "3fc43e9639c34e8223c4a871e3bdf5b2d52ee79f7e89ce3f28cba45d4cac031a",
+    "attribution": "Existing original bump source",
+    "scientific_overlay": false
+  },
+  {
+    "filename": "earth_specular_2048.jpg",
+    "source_url": "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg",
+    "bytes": 223421,
+    "sha256": "2df48906732d7a458b2d0a7cdec51a829262307c6bdee4cfdf079a4dd7c71c69",
+    "attribution": "Existing original specular source",
+    "scientific_overlay": false
+  },
+  {
+    "filename": "earth_clouds_1024.png",
+    "source_url": "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png",
+    "bytes": 226113,
+    "sha256": "5f9612e4f4040975a195dd0d14e89c9ba72bd6bdd22e1454db4fcefb92d37d38",
+    "attribution": "Existing original cloud source",
+    "scientific_overlay": false
+  },
+  {
+    "filename": "moon_1024.jpg",
+    "source_url": "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/moon_1024.jpg",
+    "bytes": 238093,
+    "sha256": "fcb0f1f5548e6e18d40063dd55c6aacd3daedf2407b181dab85b61e22bf9fe57",
+    "attribution": "Existing original lunar presentation asset",
+    "scientific_overlay": false
+  },
+  {
+    "filename": "mars_2k.jpg",
+    "source_url": "https://www.solarsystemscope.com/textures/download/2k_mars.jpg",
+    "bytes": 750547,
+    "sha256": "2d187f3e77a98eaa8cea5f4cc722f633c122ef170b9e94ace6b5fb6cbc3f8e01",
+    "attribution": "Solar System Scope CC BY4.0; saturated/gap-filled decorative imagery,not scientific overlay",
+    "scientific_overlay": false
+  }
+]

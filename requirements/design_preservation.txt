@@ -1,0 +1,115 @@
+# CRITICAL REQUIREMENT — STRICT FRONTEND DESIGN AND INTERACTION PRESERVATION
+
+This instruction has the highest priority for the entire integration task.
+
+**DO NOT REDESIGN MY FRONTEND. DO NOT CHANGE ITS VISUAL APPEARANCE OR INTERACTION EXPERIENCE.**
+
+I want my existing `frontend.txt` design to remain as close to 100% identical as technically possible.
+
+Your job is BACKEND DEVELOPMENT, REAL DATA INTEGRATION, and strictly necessary technical fixes — NOT frontend redesign.
+
+## 1. PRESERVE THE EXACT VISUAL DESIGN
+
+Keep the existing:
+
+- Layout and component positions
+- Dark space-themed background
+- Color palette and gradients
+- Typography and font sizes
+- Glassmorphism cards and panels
+- Borders, shadows, glows and transparency
+- 3D Earth, Moon and Mars globes
+- Planetary textures and atmosphere effects
+- Orbit rings and decorative elements
+- Icons and buttons
+- Header and navigation
+- Spacing, sizing and visual hierarchy
+- Existing responsive design
+- All original visual effects
+
+Do not replace my design with a generic dashboard.
+
+Do not introduce a new design system.
+
+Do not redesign cards, menus, buttons, charts or page layouts unless an existing element is technically broken and cannot otherwise be repaired.
+
+## 2. PRESERVE ALL EXISTING INTERACTIONS
+
+Keep the exact existing user interactions and their behavior:
+
+- 3D globe rotation
+- Mouse drag and touch rotation
+- Smooth auto-rotation
+- Zoom in and zoom out
+- Camera focus on selected locations
+- Planet switching
+- Planetary pin animations
+- Clicking map pins
+- Opening and closing information panels
+- Location selection
+- Existing comparison interactions
+- Filters and controls
+- Hover effects
+- Transitions and animations
+- Existing navigation and view switching
+- All other implemented interactive behaviors
+
+Do not remove or simplify existing interactions just to make backend integration easier.
+
+Keep the same animation speeds, movement styles, transitions and user experience wherever technically possible.
+
+## 3. CHANGE ONLY THE DATA SOURCE
+
+The existing frontend contains hardcoded scientific demonstration data.
+
+Replace ONLY the data and data-binding logic with verified scientific data from:
+
+`NASA_SpaceApps_Planetary_Analog_MASTER.zip`
+
+For example:
+
+OLD:
+Hardcoded temperature, slope, elevation, similarity percentage and location matching.
+
+NEW:
+Actual temperature, slope, elevation, evidence-based comparison and matching data retrieved through the FastAPI backend.
+
+The cards, layout and interactive behavior must remain visually consistent with the original.
+
+Adapt field formatting inside the existing components rather than redesigning them.
+
+If a value is unavailable, display "Data unavailable" in the same UI location.
+
+Do not fabricate values to preserve the appearance of a filled card.
+
+## 4. BACKEND INTEGRATION WITHOUT UI CHANGES
+
+Create a FastAPI backend that reads the actual scientific datasets.
+
+Connect the existing React components to the backend through an API service layer.
+
+Use typed data adapters so the existing component architecture requires minimal changes.
+
+Keep the original Three.js globe code and interactions.
+
+Do not rewrite the globe from scratch unless a specific, demonstrated technical defect makes that unavoidable.
+
+Preserve the existing planet texture-loading behavior where compatible with licensing and availability.
+
+Keep scientific data separate from decorative visual assets.
+
+## 5. HANDLE THE INCOMPLETE FRONTEND SOURCE
+
+The supplied `frontend.txt` may end before the complete React component is closed.
+
+First inspect whether the complete original frontend is available in the current workspace.
+
+If missing, reconstruct only the technically necessary missing code while following the established component structure, visual styling and interactions.
+
+Do not use incomplete source as an excuse to redesign the application.
+
+Clearly document any behavior that cannot be recovered exactly because its original implementation was not provided.
+
+## 6. REQUIRED BEFORE-AND-AFTER VALIDATION
+
+Before

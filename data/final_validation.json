@@ -1,0 +1,164 @@
+{
+  "status": "PASS_WITH_SCIENTIFIC_LIMITATIONS",
+  "created_utc": "2026-11-14T01:56:16.424750+00:00",
+  "checks": {
+    "active_site_registry": "PASS:14Earth+Orientale+MonsMouton+Hellas; legacyundefinedlunarplaceholderexcludedandarchived; no statuspromotion",
+    "joins_and_ranks": "PASS:one-row-per-site anduniqueearth/planet/category;420latest/378archived;210originalrankingrowsbyte-identical;nooverallpercentage",
+    "six_crater_rmse": "PASS:all6exactoriginalvalues preserved and independentlyrecomputed;maxabsoluteerror 0.0",
+    "website_json": "PASS:111strictJSONfiles(6required+schema+104series);17siteforeignkeys;Earth-onlyGeoJSON;typednulls;body-specificcoordinates;persourceunits/classes",
+    "earth_hourly_and_selected_summary": "PASS:all1,227,408rowscounted,87,672persite;January2015Vredefort744hoursrecomputed;pressurealreadyhPa",
+    "mcd_model": "PASS:6.2explicitmodel;625states576unique;rawK/Parangesexact;K-to-C;Ls/localtimebounds;periodicclosures",
+    "input_snapshots": "PASS:120copiedinputsbyte-identical; originalsourcesnotmodified",
+    "recorded_source_hashes": "PASS"
+  },
+  "coverage": {
+    "earth_sites": 14,
+    "moon_sites": 2,
+    "mars_sites": 1,
+    "hourly_rows": 1227408,
+    "monthly_rows": 1680,
+    "annual_rows": 140,
+    "soil_depth_rows": 84,
+    "solar_monthly_rows": 1680,
+    "modis_rows": 5542,
+    "diviner_rows": 192,
+    "mcd_seasonal_rows": 625,
+    "mcd_independent_seasonal_coordinate_states": 576,
+    "mcd_profile_rows": 875,
+    "mcd_profile_heights": 35,
+    "mcd_unique_variable_coordinate_records": 10176,
+    "mcd_raw_numeric_scalar_cells": 11000,
+    "latest_comparison_rows": 420,
+    "archived_phase4_comparison_rows": 378,
+    "purpose_rows": 210,
+    "website_json_files": 111,
+    "required_website_json_files": 6,
+    "separate_website_series_files": 104,
+    "source_catalog_rows": 39
+  },
+  "hourly_site_counts": {
+    "EARTH-VREDEFORT": 87672,
+    "EARTH-SUDBURY": 87672,
+    "EARTH-MANICOUAGAN": 87672,
+    "EARTH-ATACAMA": 87672,
+    "EARTH-NAMIB": 87672,
+    "EARTH-DRYVALLEYS": 87672,
+    "EARTH-HAUGHTON": 87672,
+    "EARTH-ICELAND-HIGHLANDS": 87672,
+    "EARTH-MOJAVE-AMB": 87672,
+    "EARTH-MAUNAKEA": 87672,
+    "EARTH-RIES": 87672,
+    "EARTH-LONAR": 87672,
+    "EARTH-WOLFE-CREEK": 87672,
+    "EARTH-PILBARA": 87672
+  },
+  "six_rmse_checks": [
+    {
+      "target": "hellas",
+      "candidate": "vredefort",
+      "original": 0.225446732949634,
+      "recomputed": 0.225446732949634,
+      "absolute_difference": 0.0
+    },
+    {
+      "target": "hellas",
+      "candidate": "manicouagan",
+      "original": 1.0782779819185586,
+      "recomputed": 1.0782779819185586,
+      "absolute_difference": 0.0
+    },
+    {
+      "target": "hellas",
+      "candidate": "sudbury",
+      "original": 1.7128564141044667,
+      "recomputed": 1.7128564141044667,
+      "absolute_difference": 0.0
+    },
+    {
+      "target": "orientale",
+      "candidate": "vredefort",
+      "original": 0.7107488909059236,
+      "recomputed": 0.7107488909059236,
+      "absolute_difference": 0.0
+    },
+    {
+      "target": "orientale",
+      "candidate": "manicouagan",
+      "original": 1.4024113807422527,
+      "recomputed": 1.4024113807422527,
+      "absolute_difference": 0.0
+    },
+    {
+      "target": "orientale",
+      "candidate": "sudbury",
+      "original": 1.485520933477032,
+      "recomputed": 1.485520933477032,
+      "absolute_difference": 0.0
+    }
+  ],
+  "independent_monthly_checks": [
+    {
+      "field": "air_temperature_mean_c",
+      "published": 22.885887,
+      "independent": 22.88588709677419,
+      "absolute_error": 9.677419043896407e-08
+    },
+    {
+      "field": "precipitation_total_mm",
+      "published": 102.0,
+      "independent": 102.0,
+      "absolute_error": 0.0
+    },
+    {
+      "field": "surface_pressure_mean_hpa",
+      "published": 860.285081,
+      "independent": 860.2850806451613,
+      "absolute_error": 3.548386757756816e-07
+    },
+    {
+      "field": "solar_shortwave_mean_w_m2",
+      "published": 312.513441,
+      "independent": 312.51344086021504,
+      "absolute_error": 1.397849587192468e-07
+    }
+  ],
+  "independent_model_checks": [
+    {
+      "variable": "modeled_surface_temperature_k",
+      "raw_min": 157.373,
+      "raw_max": 300.375
+    },
+    {
+      "variable": "surface_atmospheric_pressure_pa",
+      "raw_min": 947.293,
+      "raw_max": 1363.08
+    }
+  ],
+  "recorded_hash_entry_counts": {
+    "PASS": 1956,
+    "HISTORICAL_FAILED_HTTP_RESPONSE_NOT_SAVED_DATASET": 12
+  },
+  "recorded_hash_entries": 1968,
+  "recorded_hash_unique_resolved_files": 1234,
+  "unbound_hash_metadata_records": 0,
+  "hash_issues": [],
+  "raw_location_references": 1076,
+  "input_snapshots_checked": 120,
+  "website_json_valid": true,
+  "acquisition_performed": false,
+  "prior_legacy_registry_audit_scope": "OriginalPhase1placeholderregistryonly; finalactive17sitesvalidatedabove",
+  "independent_audit_reference": "validation/independent_scientific_audit.json",
+  "retained_scientific_flags": [
+    "PartialMODISacquisitionandclear-skyQA",
+    "NDVIpercentileorderreview3sites",
+    "Riestexturesum75.05percentunrenormalized",
+    "LPspecialnon-peer-reviewedregionalestimates",
+    "NegativeOrientaleHinvalid",
+    "Moutonlandingpolygonunverified",
+    "NoexactHellasmineralabundance",
+    "Physicalregolithparametersmissing",
+    "Noaccessiblewatericeconfirmed",
+    "MCDoneinterpolatedclimatologyscenario,notobservations",
+    "Legacycraterrawlineage/scale/coordinatequalifications"
+  ]
+}

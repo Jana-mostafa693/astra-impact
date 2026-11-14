@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "site_id": "MARS-HELLAS",
+  "body": "Mars",
+  "kind": "tes_inertia",
+  "source": {
+    "source_id": "MARS_TES_TI",
+    "planetary_body_scope": "Mars",
+    "provider": "NASA MGS TES/PDS",
+    "exact_product_name_and_version": "MGS-M-TES-5-TIMAP-V1.0;2007day/nightmaps",
+    "official_url": "https://pds-geosciences.wustl.edu/missions/mgs/tes.html",
+    "observation_model_or_proxy_status": "THERMOPHYSICAL_INVERSION",
+    "availability_status": "ACQUIRED_2_MAP_ESTIMATES",
+    "limitations": "Thermal inertia not temperature,grain size or density",
+    "variables_and_units": "Jm-2K-1s-1/2",
+    "source_basis": "Previously acquired and verified source; NO_PHASE5_ACQUISITION"
+  },
+  "units": {
+    "stable_id": null,
+    "sample_latitude": null,
+    "sample_longitude_east": null,
+    "surface_temperature_k": "K",
+    "atmospheric_temperature_k": "K",
+    "atmospheric_pressure_pa": "Pa",
+    "seasonal_temperature_variability_k": "K",
+    "thermal_inertia_j_m2_k_sqrt_s": "J m^-2 K^-1 s^-1/2",
+    "units": null,
+    "local_time_context": null,
+    "exact_local_solar_time_hours": "body-specific local solar hour;0..24 normalized day,NOTEarthUTC",
+    "solar_longitude_ls_deg": "degree",
+    "observation_interval": null,
+    "source_product": null,
+    "source_dataset": null,
+    "product_version": null,
+    "interpolation_mask": null,
+    "source_evidence": null,
+    "measurement_type": null,
+    "spatial_resolution_deg": "degree",
+    "missing_reason": null
+  },
+  "field_metadata": {
+    "stable_id": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "sample_latitude": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "sample_longitude_east": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "surface_temperature_k": {
+      "unit": "K",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "atmospheric_temperature_k": {
+      "unit": "K",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "atmospheric_pressure_pa": {
+      "unit": "Pa",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "seasonal_temperature_variability_k": {
+      "unit": "K",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "thermal_inertia_j_m2_k_sqrt_s": {
+      "unit": "J m^-2 K^-1 s^-1/2",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "units": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "local_time_context": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "exact_local_solar_time_hours": {
+      "unit": "body-specific local solar hour;0..24 normalized day,NOTEarthUTC",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "solar_longitude_ls_deg": {
+      "unit": "degree",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "observation_interval": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "source_product": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "source_dataset": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "product_version": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "interpolation_mask": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "source_evidence": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "measurement_type": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "spatial_resolution_deg": {
+      "unit": "degree",
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    },
+    "missing_reason": {
+      "unit": null,
+      "source_id": "MARS_TES_TI",
+      "data_class": "THERMOPHYSICAL_INVERSION"
+    }
+  },
+  "source_policy": "Per-field metadata separates MODIS radiometric retrievals,ERA5-Land/ERA5 and independent POWER",
+  "records": [
+    {
+      "stable_id": "MARS-HELLAS",
+      "sample_latitude": -42.675,
+      "sample_longitude_east": 70.025,
+      "surface_temperature_k": null,
+      "atmospheric_temperature_k": null,
+      "atmospheric_pressure_pa": null,
+      "seasonal_temperature_variability_k": null,
+      "thermal_inertia_j_m2_k_sqrt_s": 240,
+      "units": "J m^-2 K^-1 s^-1/2",
+      "local_time_context": "dayside / northbound TES observations",
+      "exact_local_solar_time_hours": null,
+      "solar_longitude_ls_deg": null,
+      "observation_interval": "MGS orbits 1583-24346; February 1999-April 2004; three Mars years",
+      "source_product": "GLOBAL_TI_DAY_2007",
+      "source_dataset": "MGS-M-TES-5-TIMAP-V1.0",
+      "product_version": "1.0",
+      "interpolation_mask": 1,
+      "source_evidence": "evidence/mars_thermal_acquisition.json",
+      "measurement_type": "Thermophysical model retrieval from TES radiometry; not temperature",
+      "spatial_resolution_deg": 0.05,
+      "missing_reason": "No THEMIS/MCS seasonal surface/atmospheric temperature or pressure series acquired"
+    },
+    {
+      "stable_id": "MARS-HELLAS",
+      "sample_latitude": -42.675,
+      "sample_longitude_east": 70.025,
+      "surface_temperature_k": null,
+      "atmospheric_temperature_k": null,
+      "atmospheric_pressure_pa": null,
+      "seasonal_temperature_variability_k": null,
+      "thermal_inertia_j_m2_k_sqrt_s": 298,
+      "units": "J m^-2 K^-1 s^-1/2",
+      "local_time_context": "nightside / southbound TES observations",
+      "exact_local_solar_time_hours": null,
+      "solar_longitude_ls_deg": null,
+      "observation_interval": "MGS orbits 1583-24346; February 1999-April 2004; three Mars years",
+      "source_product": "GLOBAL_TI_NIGHT_2007",
+      "source_dataset": "MGS-M-TES-5-TIMAP-V1.0",
+      "product_version": "1.0",
+      "interpolation_mask": 1,
+      "source_evidence": "evidence/mars_thermal_acquisition.json",
+      "measurement_type": "Thermophysical model retrieval from TES radiometry; not temperature",
+      "spatial_resolution_deg": 0.05,
+      "missing_reason": "No THEMIS/MCS seasonal surface/atmospheric temperature or pressure series acquired"
+    }
+  ],
+  "guardrail": "Time series separate from site summaries; localtime/Ls model axes are NOT Earth dates",
+  "site_metadata": {
+    "site_id": "MARS-HELLAS",
+    "site_name": "Hellas Basin",
+    "body": "Mars",
+    "coordinates": {
+      "body": "Mars",
+      "latitude_deg": -42.66,
+      "longitude_east_deg": 70.0,
+      "longitude_convention": "east-positive -180..180",
+      "reference_system": "Mars planetocentric, east-positive 0..360 registry; -180..180 MOLA sampling; sphere IAU2000 radius3396190m",
+      "earth_epsg": null,
+      "earth_map_eligible": false,
+      "longitude_0_360_deg": 70.0,
+      "radius_m": 3396190.0
+    },
+    "site_verification_status": "EXISTING_ANALYZED",
+    "scientific_quality_flags": [
+      "BODY_SPECIFIC_COORDINATES_NOT_EARTH_WGS84",
+      "SPATIAL_TEMPORAL_SUPPORT_MISMATCHES_RETAINED",
+      "ACCESSIBLE_WATER_ICE_NOT_CONFIRMED",
+      "MCD_6_2_MODEL_NOT_OBSERVATION"
+    ]
+  }
+}

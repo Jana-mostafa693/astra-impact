@@ -1,0 +1,7 @@
+earth_site_id,planetary_site_id,shape_rmse,units,source_id,source_file,scope
+EARTH-VREDEFORT,MARS-HELLAS,0.225446732949634,dimensionless normalized-profile RMSE,RETAINED_CRATER_PROFILES,source_inputs/existing_data/data/results.json,Only three inherited Earth structures; not overall similarity
+EARTH-MANICOUAGAN,MARS-HELLAS,1.0782779819185586,dimensionless normalized-profile RMSE,RETAINED_CRATER_PROFILES,source_inputs/existing_data/data/results.json,Only three inherited Earth structures; not overall similarity
+EARTH-SUDBURY,MARS-HELLAS,1.7128564141044667,dimensionless normalized-profile RMSE,RETAINED_CRATER_PROFILES,source_inputs/existing_data/data/results.json,Only three inherited Earth structures; not overall similarity
+EARTH-VREDEFORT,MOON-ORIENTALE,0.7107488909059236,dimensionless normalized-profile RMSE,RETAINED_CRATER_PROFILES,source_inputs/existing_data/data/results.json,Only three inherited Earth structures; not overall similarity
+EARTH-MANICOUAGAN,MOON-ORIENTALE,1.4024113807422527,dimensionless normalized-profile RMSE,RETAINED_CRATER_PROFILES,source_inputs/existing_data/data/results.json,Only three inherited Earth structures; not overall similarity
+EARTH-SUDBURY,MOON-ORIENTALE,1.485520933477032,dimensionless normalized-profile RMSE,RETAINED_CRATER_PROFILES,source_inputs/existing_data/data/results.json,Only three inherited Earth structures; not overall similarity
